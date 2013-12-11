@@ -5,13 +5,20 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'maksimr/vim-jsbeautify'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'zeayes/vim-golang'
-Bundle 'snipMate'
-Bundle 'SuperTab'
-Bundle 'AutoComplPop'
+Bundle 'SirVer/ultisnips'
+Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'klen/python-mode'
+Bundle 'jstemmer/gotags'
+Bundle 'nsf/gocode'
 Bundle 'taglist.vim'
-Bundle 'pyflakes.vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'sjl/gundo.vim'
+
 
 set backspace=indent,eol,start
 filetype plugin indent on     " required!
@@ -88,19 +95,19 @@ set termencoding=utf-8
 "set clipboard+=unnamed
 set clipboard=unnamed
 "状态行显示的内容
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+hi User1 ctermfg=gray
+hi User2 ctermfg=red
+hi User3 ctermfg=white
+hi StatusLine ctermbg=DarkBlue
+set statusline=%f%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 "总是现实状态行
 set laststatus=2
-"开始折叠
-"set foldenable
-"设置语法折叠
-"set foldmethod=syntax
-"设置折叠区域的宽度
-"set foldcolumn=1
-"设置折叠层数
-"setlocal foldlevel=1
-"设置为自动关闭折叠
-"set foldclose=all
+"设置按缩进折叠
+set foldmethod=indent
+"设置折叠深度
+set foldnestmax=3
+"默认不折叠
+set nofoldenable
 """""""""""""""""""""自定义函数"""""""""""""""""""""""
 "运行程序
 func CompileRun()
@@ -121,10 +128,14 @@ func CompileRun()
 endfunc
 map <F5> :call CompileRun()<CR>
 "添加文件说明
-autocmd FileType python :call append(0, "\# -*- coding: utf-8 -*-")
-autocmd FileType sh :call append(0, "\#!/bin/bash")
+autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
+autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 "重新打开文件
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufRead,BufNewFile *.go set filetype=go
+"autocmd VimEnter * NERDTreeToggle
+nmap <F3> :NERDTreeToggle<CR>
+nmap <F4> :TagbarToggle<CR>
 """"""""""""""""""""""""""""插件配置""""""""""""""""""""""""""""
 "Taglist
 "<leader>t 打开TagList窗口，窗口在右边
@@ -134,5 +145,36 @@ nmap cp "+p
 set pastetoggle=<F10>
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
+let g:syntastic_python_checkers=['flake8', 'python']
+let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721  --max-line-length=84'
 let g:flake8_ignore="E501,W293,W191"
 let g:flake8_max_line_length=99
+let g:SuperTabDefaultCompletionType="context"
+"let g:airline#extensions#tabline#enabled = 1
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
