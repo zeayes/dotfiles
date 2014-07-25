@@ -1,0 +1,23 @@
+## vim specific
+*.swp
+
+## clang specific
+a.out
+*.so
+*.o
+
+## python specific
+*.pyc
+*.pyo
+*.egg
+
+## java specific
+*.class
+
+## compress specific
+*.tar.gz
+*.tar.bz2
+*.zip
+
+## svn
+.svn
