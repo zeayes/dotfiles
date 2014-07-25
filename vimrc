@@ -1,39 +1,20 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'zeayes/vim-golang'
-Bundle 'SirVer/ultisnips'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'klen/python-mode'
-Bundle 'jstemmer/gotags'
-Bundle 'nsf/gocode'
-Bundle 'taglist.vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'sjl/gundo.vim'
+source ~/.vim/bundles.vim
 
-
-set backspace=indent,eol,start
-filetype plugin indent on     " required!
-"设置语法高亮
-syntax on
+syntax enable
+set background=dark
 "配色方案
 colorscheme desert
+"设置语法高亮
+syntax on
+"set colorcolumn=4,80
+"set modeline
+set textwidth=120
 "启用行号
 set nu
+"禁用相对行号
+"set nornu
 "显示当前模式
 set showcmd
-"在左下角显示当前文件所在的行
-set ruler
-"显示修改次数
-set report=0
 "行高亮
 "set cursorline
 "启用鼠标
@@ -74,7 +55,7 @@ set cindent
 "显示制表位（ctrl+i）和 行尾标志（$）
 "set list
 "侦测文件类型
-filetype off
+filetype on
 "载入文件类型插件
 filetype plugin on
 "为特定文件类型载入相关缩进文件
@@ -110,47 +91,47 @@ set foldnestmax=3
 set nofoldenable
 """""""""""""""""""""自定义函数"""""""""""""""""""""""
 "运行程序
+map <F5> :call CompileRun()<CR>
 func CompileRun()
     exec "w!"
     if &filetype == 'c'
-        exec "!gcc % -g "
-        exec "!a.out"
+        exec "!gcc % -g -std=c99 "
+        exec "!./a.out"
     elseif &filetype == 'cpp'
         exec "!g++ % -g "
-        exec "!a.out"
+        exec "!./a.out"
     elseif &filetype == 'python'
         exec "!python %"
-    elseif &filetype == 'sh'
-        exec "!bash %"
     elseif &filetype == 'go'
         exec "!go run %"
+    elseif &filetype == 'sh'
+        exec "!bash %"
+    elseif &filetype == 'lua'
+        exec "!lua %"
+    elseif &filetype == 'javascript'
+        exec "!node %"
     endif
 endfunc
-map <F5> :call CompileRun()<CR>
-"添加文件说明
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
+autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
-"重新打开文件
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufRead,BufNewFile *.go set filetype=go
-"autocmd VimEnter * NERDTreeToggle
-nmap <F3> :NERDTreeToggle<CR>
-nmap <F4> :TagbarToggle<CR>
+autocmd BufRead,BufNewFile *.html set filetype=html
+autocmd FileType javascript set tabstop=2 autoindent shiftwidth=2
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd FileType make set noexpandtab
 """"""""""""""""""""""""""""插件配置""""""""""""""""""""""""""""
 "Taglist
-"<leader>t 打开TagList窗口，窗口在右边
 map <silent> tl :TlistToggle<CR>
-"保持格式的跨文件复制
-nmap cp "+p
-set pastetoggle=<F10>
+map <silent> cp "+p<CR>
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
-let g:syntastic_python_checkers=['flake8', 'python']
-let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721  --max-line-length=84'
-let g:flake8_ignore="E501,W293,W191"
-let g:flake8_max_line_length=99
-let g:SuperTabDefaultCompletionType="context"
-"let g:airline#extensions#tabline#enabled = 1
+"MiniBufExplorer
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:indent_guides_guide_size=1
+nmap <F8> :TagbarToggle<CR>
+let g:godef_split=0
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -177,4 +158,19 @@ let g:tagbar_type_go = {
     \ },
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
-    \ }
+\ }
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_python_checkers=['pyflakes', 'pep8', 'pylint', 'flake8']
+let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721  --max-line-length=84'
+let g:flake8_ignore="E501,W293,W191"
+let g:flake8_max_line_length=99
+
+let g:SuperTabDefaultCompletionType="context"
+
+let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
