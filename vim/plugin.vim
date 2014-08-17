@@ -2,16 +2,17 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 filetype plugin indent off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 Bundle 'cespare/vim-golang'
 Bundle 'jstemmer/gotags'
 Bundle 'dgryski/vim-godef'
 Bundle 'nsf/gocode'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mattn/emmet-vim'
+Bundle 'zeayes/vim-snippets'
 
 Bundle 'scrooloose/nerdtree'
 nmap nt :NERDTree<CR>
@@ -67,3 +68,5 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_python_checkers=['pyflakes']
 highlight SyntasticErrorSign guifg=white guibg=black
+
+call vundle#end()
