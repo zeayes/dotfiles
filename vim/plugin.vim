@@ -43,7 +43,7 @@ let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_cache_omnifunc=0	
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
-nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
+" nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
 
 Bundle 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger = "<tab>"
