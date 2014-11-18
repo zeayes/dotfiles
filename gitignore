@@ -1,0 +1,29 @@
+*.swp
+
+a.out
+*.so
+*.o
+
+## python
+*.pyc
+*.pyo
+*.egg
+
+
+*.log
+settings.json
+configs.py
+bin
+lib
+man
+include
+.Python
+node_modules
+
+## front
+.sass-cache
+.tern-project
+.DS_Store
+
+## java
+.class

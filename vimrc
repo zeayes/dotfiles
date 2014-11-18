@@ -1,14 +1,28 @@
-source ~/.vim/plugin.vim
+" Use bundles {
+if filereadable(expand("~/.vim/plugin.vim"))
+    source ~/.vim/plugin.vim
+endif
+"}
 
 syntax enable
 " 配色方案
+set t_Co=256
 set background=dark
-colorscheme desert
+colorscheme solarized
+" colorscheme desert
+" colorscheme molokai
 " 设置语法高亮
 syntax on
 "set colorcolumn=4,80
 "set modeline
+set history=700
 set textwidth=120
+set backspace=indent,eol,start
+set showmode
+set linespace=0
+set wildmenu
+set wildmode=list:longest,full
+set whichwrap=b,s,h,l,<,>,[,]
 " 启用行号
 set nu
 " 禁用相对行号
@@ -25,6 +39,8 @@ set tabstop=4
 set expandtab
 "设定<<和>>命令移动时的宽度
 set shiftwidth=4
+" backspace delete indent
+set softtabstop=4
 " 显示TAB字符威<+++
 "set list
 "set listchars=tab:<+
@@ -36,6 +52,7 @@ set hlsearch
 set ignorecase smartcase
 " 禁止在搜索到文件两端时重新搜索
 set nowrapscan
+set nowrap
 " 输入括号时短暂跳到与之匹配处
 set showmatch
 " 匹配括号的规则，增加针对html的<>
@@ -46,12 +63,18 @@ set nobackup
 set nowb
 " 自动切换目录为当前文件所在的目录
 set autochdir
-" 启用自动缩进，并设置自动缩进的宽度为4
-set autoindent shiftwidth=4
+" 启用自动缩进
+set autoindent
+" 设置缩进的宽度为4
+set shiftwidth=4
 " 为C程序提供自动缩进
 set smartindent
 " 使用C风格的缩进方案
 set cindent
+" vsplit分屏显示在右边
+set splitright
+" split分屏显示在下面
+set splitbelow
 " 侦测文件类型
 filetype on
 " 载入文件类型插件
@@ -63,6 +86,8 @@ set encoding=utf-8
 set fileformats=unix,dos
 " vim自动判断文件的编 码时尝试的顺序
 set fileencodings=utf-8,gb2312,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom
+set wildignore=*.o,*~,*.pyc,*.bin,#*#
+set wildignore+=*/.git/*,*/.DS_Store
 " 让汉字以2个宽度显示
 set ambiwidth=double
 " 设置帮助的语言为中文
@@ -74,11 +99,16 @@ hi User1 ctermfg=gray
 hi User2 ctermfg=red
 hi User3 ctermfg=white
 hi StatusLine ctermbg=DarkBlue
-set statusline=%f%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-" 格式化粘贴，设置默认的缓冲寄存器为"*
-set clipboard=unnamed
 " 总是现实状态行
 set laststatus=2
+set statusline=\ [%{getcwd()}/%<%f%m%r%h%w]
+set statusline+=\ [%{fugitive#statusline()}]
+set statusline+=\ [FORMAT=%{&ff}]
+set statusline+=\ [TYPE=%Y]
+set statusline+=\ [POS=%l,%v\ %p%%]
+set statusline+=\ [%{strftime(\"%Y/%m/%d\ %H:%M\")}]
+" 格式化粘贴，设置默认的缓冲寄存器为"*
+set clipboard=unnamed
 " 设置按缩进折叠
 set foldmethod=indent
 " 设置折叠深度
@@ -87,7 +117,7 @@ set foldnestmax=3
 set nofoldenable
 """""""""""""""""""""自定义函数"""""""""""""""""""""""
 map <F5> :call CompileRun()<CR>
-func CompileRun()
+function! CompileRun()
     exec "w!"
     if &filetype == 'c'
         exec "!gcc % -g -std=c99 "
@@ -97,6 +127,8 @@ func CompileRun()
         exec "!./a.out"
     elseif &filetype == 'python'
         exec "!python %"
+    elseif &filetype == 'ruby'
+        exec "!ruby %"
     elseif &filetype == 'go'
         exec "!go run %"
     elseif &filetype == 'sh'
@@ -106,18 +138,25 @@ func CompileRun()
     elseif &filetype == 'javascript'
         exec "!node %"
     endif
-endfunc
+endfunction
+
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd BufRead,BufNewFile *.html set filetype=html
-autocmd FileType javascript set tabstop=2 autoindent shiftwidth=2
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufRead,BufNewFile *.scss set filetype=scss
+" autocmd FileType scss set tabstop=2 autoindent shiftwidth=2
+" autocmd FileType html set tabstop=2 autoindent shiftwidth=2
+" autocmd FileType javascript set tabstop=2 autoindent shiftwidth=2
 autocmd FileType make set noexpandtab
-"""""""""""""""""""""自定义快捷键"""""""""""""""""""""""
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" hotkeys {
+let mapleader=","
 " 十六进制格式查看
 nmap <leader>16 <ESC>:%!xxd<ESC>
 " 返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
+"}
