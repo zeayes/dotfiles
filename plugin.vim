@@ -183,10 +183,19 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_css_csslint_args = '
+    \ --ignore=ids,box-model,gradients,duplicate-background-images'
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_scss_scss_lint_args = '--config ~/.scsslint.yml'
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
+let g:syntastic_html_tidy_quiet_messages = {"level": "warnings"}
+let g:syntastic_html_tidy_ignore_errors = [
+            \ 'Expected a string and instead saw',
+            \ 'escaping malformed URI reference',
+            \ 'trimming empty'
+            \ ]
+" let g:syntastic_html_tidy_args = '--show-warnings false'
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args = '
     \ --max-line-length=100 --max-complexity=12

@@ -9,7 +9,7 @@
     ui = true
     pager = true
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore
 [alias]
     co = checkout
     ci = commit
