@@ -149,7 +149,9 @@ let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 " let g:ycm_goto_buffer_command = 'horizontal-split'
 let g:ycm_goto_buffer_command = 'vertical-split'
-nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
+" 导致vim出现卡顿现象
+" nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
+nnoremap <c-d> :YcmCompleter GoToDefinitionElseDeclaration<CR> 
 nnoremap <F2> :YcmForceCompileAndDiagnostics<CR>
 
 

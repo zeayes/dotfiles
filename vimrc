@@ -26,13 +26,17 @@ set whichwrap=b,s,h,l,<,>,[,]
 " 启用行号
 set nu
 " 禁用相对行号
-"set nornu
+set nornu
 " 显示当前模式
 set showcmd
 " 行高亮
-"set cursorline
+set cursorline
+" 列高亮
+set cursorcolumn
 " 启用鼠标
 set mouse=v
+" 输入时隐藏鼠标
+set mousehide
 " 设定tab长度
 set tabstop=4
 " 空格代替tab
@@ -107,8 +111,11 @@ set statusline+=\ [FORMAT=%{&ff}]
 set statusline+=\ [TYPE=%Y]
 set statusline+=\ [POS=%l,%v\ %p%%]
 set statusline+=\ [%{strftime(\"%Y/%m/%d\ %H:%M\")}]
-" 格式化粘贴，设置默认的缓冲寄存器为"*
+" 格式化粘贴，设置默认的缓冲寄存器为
 set clipboard=unnamed
+set pastetoggle=<F3>
+" J合并行时以一个空格分割
+set nojoinspaces
 " 设置按缩进折叠
 set foldmethod=indent
 " 设置折叠深度
