@@ -92,6 +92,8 @@ set fileformats=unix,dos
 set fileencodings=utf-8,gb2312,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom
 set wildignore=*.o,*~,*.pyc,*.bin,#*#
 set wildignore+=*/.git/*,*/.DS_Store
+" 把-设置为单词的一部分
+set iskeyword+=-
 " 让汉字以2个宽度显示
 set ambiwidth=double
 " 设置帮助的语言为中文
