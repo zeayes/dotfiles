@@ -92,8 +92,6 @@ set fileformats=unix,dos
 set fileencodings=utf-8,gb2312,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom
 set wildignore=*.o,*~,*.pyc,*.bin,#*#
 set wildignore+=*/.git/*,*/.DS_Store
-" 把-设置为单词的一部分
-set iskeyword+=-
 " 让汉字以2个宽度显示
 set ambiwidth=double
 " 设置帮助的语言为中文
@@ -162,6 +160,11 @@ autocmd BufRead,BufNewFile *.scss set filetype=scss
 " autocmd FileType javascript set tabstop=2 autoindent shiftwidth=2
 autocmd FileType make set noexpandtab
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" 把-设置为单词的一部分
+autocmd FileType css set iskeyword+=-
+autocmd FileType scss set iskeyword+=-
+autocmd FileType html set iskeyword+=-
+autocmd FileType jinja set iskeyword+=-
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " hotkeys {
