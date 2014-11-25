@@ -3,7 +3,7 @@ dotfiles
 
 personal configure files for vim, zsh, git and so on.
 
-#### install (vundle)[https://github.com/gmarik/Vundle.vim]
+#### install [vundle](https://github.com/gmarik/Vundle.vim)
 ```sh
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
@@ -46,7 +46,7 @@ sudo npm install scss-lint
 sudo npm install tidy
 ```
 
-#### install (YouCompleteMe)[https://github.com/Valloric/YouCompleteMe]
+#### install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 
 ##### 1. `MAC`
 ```sh
