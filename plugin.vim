@@ -224,6 +224,17 @@ let g:syntastic_python_flake8_args = '
 " let g:syntastic_quiet_messages = {'level': 'warning'}
 highlight SyntasticErrorSign guifg=white guibg=black
 
+Plugin 'zeayes/Vim-Jinja2-Syntax'
+autocmd BufRead,BufNewFile *.html  set filetype=jinja
+let g:syntastic_jinja_checkers=['tidy', 'jshint']
+let g:syntastic_jinja_tidy_quiet_messages = {"level": "warnings"}
+let g:syntastic_jinja_tidy_ignore_errors = [
+            \ 'Expected a string and instead saw',
+            \ 'escaping malformed URI reference',
+            \ 'trimming empty'
+            \ ]
+
+
 Plugin 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-m>'

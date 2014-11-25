@@ -79,7 +79,7 @@ set cindent
 set splitright
 " split分屏显示在下面
 set splitbelow
-" 侦测文件类型
+" 检测文件类型
 filetype on
 " 载入文件类型插件
 filetype plugin on
@@ -144,6 +144,8 @@ function! CompileRun()
         exec "!bash %"
     elseif &filetype == 'lua'
         exec "!lua %"
+    elseif &filetype == 'vim'
+        source %
     elseif &filetype == 'javascript'
         exec "!node %"
     endif
@@ -153,8 +155,8 @@ autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufRead,BufNewFile *.go set filetype=go
-autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufRead,BufNewFile *.scss set filetype=scss
+" autocmd BufRead,BufNewFile *.html set filetype=html
 " autocmd FileType scss set tabstop=2 autoindent shiftwidth=2
 " autocmd FileType html set tabstop=2 autoindent shiftwidth=2
 " autocmd FileType javascript set tabstop=2 autoindent shiftwidth=2
@@ -163,6 +165,7 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " hotkeys {
+" change the mapleader from \ to ,
 let mapleader=","
 " 十六进制格式查看
 nmap <leader>16 <ESC>:%!xxd<ESC>
