@@ -5,7 +5,6 @@ filetype plugin indent off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'rizzatti/dash.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nsf/gocode'
 Plugin 'jstemmer/gotags'
@@ -17,7 +16,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'gorodinskiy/vim-coloresque'
+
+Plugin 'zeayes/vim-coloresque'
+" let g:coloresque_keywords = ["-", "#"]
 
 Plugin 'hdima/python-syntax'
 let python_highlight_all = 1
@@ -225,7 +226,7 @@ let g:syntastic_python_flake8_args = '
 highlight SyntasticErrorSign guifg=white guibg=black
 
 Plugin 'zeayes/Vim-Jinja2-Syntax'
-autocmd BufRead,BufNewFile *.html  set filetype=jinja
+" autocmd BufRead,BufNewFile *.html  set filetype=jinja
 let g:syntastic_jinja_checkers=['tidy', 'jshint']
 let g:syntastic_jinja_tidy_quiet_messages = {"level": "warnings"}
 let g:syntastic_jinja_tidy_ignore_errors = [

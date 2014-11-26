@@ -160,8 +160,8 @@ autocmd BufRead,BufNewFile *.scss set filetype=scss
 " autocmd FileType javascript set tabstop=2 autoindent shiftwidth=2
 autocmd FileType make set noexpandtab
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
-" 把-设置为单词的一部分
-autocmd FileType css,scss,sass,html,jinja,javascript set iskeyword+=-
+" reset iskeyword and add - to iskeyword
+autocmd FileType css,scss,sass,html,jinja,javascript set iskeyword& | set iskeyword+=-
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " hotkeys {
