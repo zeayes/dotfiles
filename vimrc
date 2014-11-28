@@ -27,6 +27,8 @@ set whichwrap=b,s,h,l,<,>,[,]
 set nu
 " 禁用相对行号
 set nornu
+" 光标离上下3行滚动
+set scrolloff=3
 " 显示当前模式
 set showcmd
 " 行高亮
@@ -98,11 +100,6 @@ set ambiwidth=double
 set helplang=cn
 " 输出到客户终端（Term）采用的编码类型
 set termencoding=utf-8
-" 状态行显示的内容
-hi User1 ctermfg=gray
-hi User2 ctermfg=red
-hi User3 ctermfg=white
-hi StatusLine ctermbg=DarkBlue
 " 总是现实状态行
 set laststatus=2
 set statusline=\ [%{getcwd()}/%<%f%m%r%h%w]
@@ -149,26 +146,17 @@ function! CompileRun()
     endif
 endfunction
 
+autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
-autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
-autocmd BufRead,BufNewFile *.go set filetype=go
-autocmd BufRead,BufNewFile *.scss set filetype=scss
-" autocmd BufRead,BufNewFile *.html set filetype=html
-" autocmd FileType scss set tabstop=2 autoindent shiftwidth=2
-" autocmd FileType html set tabstop=2 autoindent shiftwidth=2
-" autocmd FileType javascript set tabstop=2 autoindent shiftwidth=2
 autocmd FileType make set noexpandtab
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " reset iskeyword and add - to iskeyword
-autocmd FileType css,scss,sass,html,jinja,javascript set iskeyword& | set iskeyword+=-
+autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" hotkeys {
 " change the mapleader from \ to ,
 let mapleader=","
 " 十六进制格式查看
 nmap <leader>16 <ESC>:%!xxd<ESC>
 " 返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
-"}

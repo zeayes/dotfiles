@@ -7,15 +7,15 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nsf/gocode'
-Plugin 'jstemmer/gotags'
-Plugin 'dgryski/vim-godef'
-Plugin 'cespare/vim-golang'
+" Plugin 'tomasr/molokai'
 Plugin 'zeayes/vim-snippets'
+Plugin 'zeayes/jinja-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'cakebaker/scss-syntax.vim'
+
 
 Plugin 'zeayes/vim-coloresque'
 " let g:coloresque_keywords = ["-", "#"]
@@ -45,6 +45,12 @@ Plugin 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key = '<C-Z>'
 autocmd FileType html,css,scss EmmetInstall
+
+Plugin 'fatih/vim-go'
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
 Plugin 'bling/vim-airline'
 if !exists('g:airline_symbols')
@@ -185,10 +191,6 @@ let g:indent_guides_auto_colors = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
-" hi IndentGuidesOdd  ctermbg=black
-" hi IndentGuidesEven ctermbg=darkgrey
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 Plugin 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
@@ -224,16 +226,6 @@ let g:syntastic_python_flake8_args = '
 " let g:syntastic_python_checkers=['pylint']
 " let g:syntastic_quiet_messages = {'level': 'warning'}
 highlight SyntasticErrorSign guifg=white guibg=black
-
-Plugin 'zeayes/Vim-Jinja2-Syntax'
-" autocmd BufRead,BufNewFile *.html  set filetype=jinja
-let g:syntastic_jinja_checkers=['tidy', 'jshint']
-let g:syntastic_jinja_tidy_quiet_messages = {"level": "warnings"}
-let g:syntastic_jinja_tidy_ignore_errors = [
-            \ 'Expected a string and instead saw',
-            \ 'escaping malformed URI reference',
-            \ 'trimming empty'
-            \ ]
 
 
 Plugin 'terryma/vim-multiple-cursors'
