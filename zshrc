@@ -50,7 +50,16 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+if brew list | grep coreutils > /dev/null ; then
+    export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+    export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
+    alias ls='ls -F --show-control-chars --color=auto'
+    eval `gdircolors -b $HOME/.dir_colors`
+    export GOROOT=$(brew --prefix go)/libexec
+    export GOPATH=$HOME/Golib
+    export PATH=$GOROOT/bin:$PATH
+fi
+
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -65,3 +74,4 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+alias supervisorctl="supervisorctl -c /usr/local/supervisor/supervisord.conf"

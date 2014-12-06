@@ -47,9 +47,9 @@ let g:user_emmet_leader_key = '<C-Z>'
 autocmd FileType html,css,scss EmmetInstall
 
 Plugin 'fatih/vim-go'
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+" au FileType go nmap dt <Plug>(go-def-tab)
+au FileType go nmap ds <Plug>(go-def-split)
+au FileType go nmap dv <Plug>(go-def-vertical)
 autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
 Plugin 'bling/vim-airline'
