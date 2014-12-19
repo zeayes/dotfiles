@@ -7,7 +7,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nsf/gocode'
-" Plugin 'tomasr/molokai'
+Plugin 'tomasr/molokai'
 Plugin 'zeayes/vim-snippets'
 Plugin 'zeayes/jinja-syntax'
 Plugin 'pangloss/vim-javascript'
@@ -166,13 +166,15 @@ let g:ycm_warning_symbol='>*'
 let g:ycm_key_list_select_completion=['<c-n>']
 let g:ycm_key_list_previous_completion=['<c-p>']
 let g:ycm_confirm_extra_conf=0 
-let g:ycm_cache_omnifunc=0	
-let g:ycm_min_num_of_chars_for_completion=2	
+let g:ycm_complete_in_strings=1
+let g:ycm_complete_in_comments=1
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_min_num_of_chars_for_completion=2	
+let g:ycm_min_num_identifier_candidate_chars=0
 let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-" let g:ycm_goto_buffer_command = 'horizontal-split'
-let g:ycm_goto_buffer_command = 'vertical-split'
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+" [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ] 
+let g:ycm_goto_buffer_command='vertical-split'
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
 nnoremap <c-d> :YcmCompleter GoToDefinitionElseDeclaration<CR> 
@@ -220,7 +222,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 " let g:syntastic_html_tidy_args = '--show-warnings false'
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args = '
-    \ --max-line-length=100 --max-complexity=12
+    \ --max-line-length=120 --max-complexity=12
     \ --ignore="E302,E261,E701,E241,E126,E127,E128,W801,C901"'
 " let g:syntastic_python_checkers=['pyflakes']
 " let g:syntastic_python_checkers=['pylint']

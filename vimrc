@@ -139,6 +139,8 @@ function! CompileRun()
         exec "!bash %"
     elseif &filetype == 'lua'
         exec "!lua %"
+    elseif &filetype == 'php'
+        exec "!php %"
     elseif &filetype == 'vim'
         source %
     elseif &filetype == 'javascript'
