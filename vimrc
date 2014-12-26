@@ -154,6 +154,7 @@ autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd FileType make set noexpandtab
 " reset iskeyword and add - to iskeyword
 autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
+autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " change the mapleader from \ to ,

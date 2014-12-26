@@ -175,6 +175,7 @@ let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 " [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ] 
 let g:ycm_goto_buffer_command='vertical-split'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
 nnoremap <c-d> :YcmCompleter GoToDefinitionElseDeclaration<CR> 
