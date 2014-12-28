@@ -129,6 +129,9 @@ function! CompileRun()
     elseif &filetype == 'cpp'
         exec "!g++ % -g "
         exec "!./a.out"
+    elseif &filetype == 'objc'
+        exec "!clang -fobjc-arc %"
+        exec "!./a.out"
     elseif &filetype == 'python'
         exec "!python %"
     elseif &filetype == 'ruby'
@@ -152,6 +155,8 @@ autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd FileType make set noexpandtab
+autocmd BufNewFile,BufRead *.m set filetype=objc
+autocmd BufNewFile,BufRead *.mm set filetype=objcpp
 " reset iskeyword and add - to iskeyword
 autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
 autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool

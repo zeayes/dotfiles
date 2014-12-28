@@ -15,6 +15,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'kentaroi/cocoa.vim'
 
 
 Plugin 'zeayes/vim-coloresque'
@@ -186,7 +187,7 @@ Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories=["bundle/ultisnips/UltiSnips"]
+" let g:UltiSnipsSnippetDirectories=["bundle/ultisnips/UltiSnips"]
 let g:UltiSnipsEditSplit="vertical"
 
 Plugin 'nathanaelkane/vim-indent-guides'
