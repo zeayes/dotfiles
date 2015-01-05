@@ -1,6 +1,7 @@
 [user]
 	name = zeayes
 	email = zeayes@gmail.com
+
 [color]
     status = auto
     diff = auto
@@ -8,8 +9,10 @@
     interactive = auto
     ui = true
     pager = true
+
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
+
 [alias]
     co = checkout
     ci = commit

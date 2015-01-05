@@ -8,6 +8,8 @@ a.out
 *.pyc
 *.pyo
 *.egg
+*.egg-info
+dist
 
 
 *.log
@@ -25,4 +27,7 @@ node_modules
 .DS_Store
 
 ## java
-.class
+*.class
+
+*.js
+!*.min.js
