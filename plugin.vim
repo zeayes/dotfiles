@@ -146,7 +146,6 @@ vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a,, :Tabularize /,\zs<CR>
 vmap <Leader>a,, :Tabularize /,\zs<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-jmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 Plugin 'majutsushi/tagbar'
 nmap tb :TagbarToggle <CR>
