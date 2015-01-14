@@ -58,11 +58,8 @@ if brew list | grep coreutils > /dev/null ; then
     export GOROOT=$(brew --prefix go)/libexec
     export GOPATH=$HOME/Golib
     export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+    export PATH=$(brew --prefix llvm)/bin:$PATH
 fi
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/zeayes/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then

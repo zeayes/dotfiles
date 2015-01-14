@@ -15,8 +15,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-markdown'
 Plugin 'kentaroi/cocoa.vim'
-
+Plugin 'Shougo/vimproc.vim'
+Plugin 'b4winckler/vim-objc'
+Plugin 'toyamarinyon/vim-swift'
+Plugin 'eraserhd/vim-ios.git'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'gilligan/vim-lldb'
 
 Plugin 'zeayes/vim-coloresque'
 " let g:coloresque_keywords = ["-", "#"]
@@ -140,7 +146,7 @@ vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a,, :Tabularize /,\zs<CR>
 vmap <Leader>a,, :Tabularize /,\zs<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+jmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 Plugin 'majutsushi/tagbar'
 nmap tb :TagbarToggle <CR>
@@ -161,6 +167,7 @@ let g:tagbar_type_go = {
             \ }
 
 Plugin 'Valloric/YouCompleteMe'
+" set completeopt=longest,menu,preview
 set completeopt=longest,menu
 let g:ycm_error_symbol='>>'
 let g:ycm_warning_symbol='>*'
@@ -174,12 +181,16 @@ let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_min_num_identifier_candidate_chars=0
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 " [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ] 
 let g:ycm_goto_buffer_command='vertical-split'
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
-nnoremap <c-d> :YcmCompleter GoToDefinitionElseDeclaration<CR> 
+nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
+nnoremap <c-h> :YcmCompleter GoToDeclaration<CR>
+nnoremap <c-e> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <F2> :YcmForceCompileAndDiagnostics<CR>
 
 

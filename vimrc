@@ -124,18 +124,17 @@ map <F5> :call CompileRun()<CR>
 function! CompileRun()
     exec "w!"
     if &filetype == 'c'
-        exec "!gcc % -g -std=c99 "
-        exec "!./a.out"
+        exec "!gcc % -g -std=c99 && ../a.out"
     elseif &filetype == 'cpp'
-        exec "!g++ % -g "
-        exec "!./a.out"
+        exec "!g++ % -g && ./a.out"
     elseif &filetype == 'objc'
-        exec "!clang -fobjc-arc %"
-        exec "!./a.out"
+        exec "!clang -fobjc-arc % && ./a.out"
     elseif &filetype == 'python'
         exec "!python %"
     elseif &filetype == 'ruby'
         exec "!ruby %"
+    elseif &filetype == 'swift'
+        exec "!xcrun swift %"
     elseif &filetype == 'go'
         exec "!go run %"
     elseif &filetype == 'sh'
@@ -155,8 +154,9 @@ autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd FileType make set noexpandtab
-autocmd BufNewFile,BufRead *.m set filetype=objc
+autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " reset iskeyword and add - to iskeyword
 autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
 autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
