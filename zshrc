@@ -44,7 +44,7 @@ ZSH_THEME="zeayes"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git)
+plugins=(autojump git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -61,17 +61,22 @@ if brew list | grep coreutils > /dev/null ; then
     export PATH=$(brew --prefix llvm)/bin:$PATH
 fi
 
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/zeayes/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR=/usr/bin/vim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa.pub"
 
 alias supervisorctl="supervisorctl -c /usr/local/supervisor/supervisord.conf"

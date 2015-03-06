@@ -58,6 +58,7 @@ set hlsearch
 set ignorecase smartcase
 " 禁止在搜索到文件两端时重新搜索
 set nowrapscan
+" 禁止拆行
 set nowrap
 " 输入括号时短暂跳到与之匹配处
 set showmatch
