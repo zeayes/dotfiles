@@ -8,6 +8,16 @@ personal configure files for vim, zsh, git and so on.
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
+#### install [brew](http://brew.sh/)
+```sh
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+#### install vim
+```sh
+brew install macvim --with-cscope --with-lua --override-system-vim --HEAD
+```
+
 #### install vim config and plugin
 ```sh
 git clone https://github.com/zeayes/dotfiles
@@ -51,7 +61,8 @@ sudo npm install tidy
 ##### 1. `MAC`
 ```sh
 cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
+git submodule update --init --recursive
+./install.sh --clang-completer --system-libclang
 ```
 
 ##### 2. build yourself

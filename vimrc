@@ -91,7 +91,7 @@ filetype indent on
 " 显示所用的编码（取决于“LANG环境变量”）
 set encoding=utf-8
 set fileformats=unix,dos
-" vim自动判断文件的编 码时尝试的顺序
+" vim自动判断文件的编码时尝试的顺序
 set fileencodings=utf-8,gb2312,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom
 set wildignore=*.o,*~,*.pyc,*.bin,#*#
 set wildignore+=*/.git/*,*/.DS_Store

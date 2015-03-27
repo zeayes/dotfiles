@@ -44,7 +44,7 @@ ZSH_THEME="zeayes"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(autojump git)
+plugins=(autojump git osx colored-man supervisor brew vundle)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,3 +80,4 @@ export EDITOR=/usr/bin/vim
 export SSH_KEY_PATH="~/.ssh/id_rsa.pub"
 
 alias supervisorctl="supervisorctl -c /usr/local/supervisor/supervisord.conf"
+# alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
