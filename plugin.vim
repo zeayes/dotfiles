@@ -12,9 +12,9 @@ Plugin 'zeayes/vim-snippets'
 Plugin 'zeayes/jinja-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'tpope/vim-markdown'
 Plugin 'kentaroi/cocoa.vim'
 Plugin 'Shougo/vimproc.vim'
@@ -23,9 +23,21 @@ Plugin 'toyamarinyon/vim-swift'
 Plugin 'eraserhd/vim-ios.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'gilligan/vim-lldb'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
+Plugin 'rust-lang/rust.vim'
+Plugin 'uarun/vim-protobuf'
+Plugin 'solarnz/thrift.vim'
+
+Plugin 'Lokaltog/vim-easymotion'
+let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
 Plugin 'zeayes/vim-coloresque'
 " let g:coloresque_keywords = ["-", "#"]
+
+Plugin 'ntpeters/vim-better-whitespace'
+autocmd BufWritePre <buffer> StripWhitespace
 
 Plugin 'hdima/python-syntax'
 let python_highlight_all = 1
@@ -38,12 +50,14 @@ let g:gitgutter_highlight_lines = 1
 
 Plugin 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
+" exclude <:> matchpair
+au FileType ruby,python let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
 
 Plugin 'klen/python-mode'
-let g:pymode_lint_checkers = ['pyflakes']
+let g:pymode_lint_checkers = ['flake8']
 let g:pymode_trim_whitespaces = 0
 let g:pymode_options = 0
 let g:pymode_rope = 0
@@ -126,6 +140,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
+let NERDTreeWinPos='right'
 let g:nerdtree_tabs_open_on_gui_startup=0
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
@@ -172,21 +187,22 @@ let g:ycm_error_symbol='>>'
 let g:ycm_warning_symbol='>*'
 let g:ycm_key_list_select_completion=['<c-n>']
 let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_confirm_extra_conf=0 
+let g:ycm_confirm_extra_conf=0
 let g:ycm_complete_in_strings=1
 let g:ycm_complete_in_comments=1
+let g:ycm_use_ultisnips_completer = 1
 let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_min_num_of_chars_for_completion=2	
+let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_min_num_identifier_candidate_chars=0
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
-" [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ] 
+" [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 let g:ycm_goto_buffer_command='vertical-split'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 " 导致vim出现卡顿现象
-" nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR> 
+" nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
 nnoremap <c-h> :YcmCompleter GoToDeclaration<CR>
 nnoremap <c-e> :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -235,7 +251,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args = '
     \ --max-line-length=120 --max-complexity=12
-    \ --ignore="E302,E261,E701,E241,E126,E127,E128,W801,C901"'
+    \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
 " let g:syntastic_python_checkers=['pyflakes']
 " let g:syntastic_python_checkers=['pylint']
 " let g:syntastic_quiet_messages = {'level': 'warning'}
@@ -250,7 +266,7 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_map = '<leader>p'
+" let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 " let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_custom_ignore = {
@@ -258,5 +274,11 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|pyc|swp)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+Plugin 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+nmap <c-a> :Ack<space>
+Plugin 'dyng/ctrlsf.vim'
+nmap <c-f>f <Plug>CtrlSFPrompt
 
 call vundle#end()

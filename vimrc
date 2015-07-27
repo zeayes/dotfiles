@@ -144,6 +144,8 @@ function! CompileRun()
         exec "!lua %"
     elseif &filetype == 'php'
         exec "!php %"
+    elseif &filetype == 'rust'
+        exec "!rustc % && ./%:r"
     elseif &filetype == 'vim'
         source %
     elseif &filetype == 'javascript'
@@ -153,6 +155,7 @@ endfunction
 
 autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
+autocmd BufNewFile *.rb :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p

@@ -1,4 +1,5 @@
 *.swp
+*.swo
 
 a.out
 *.so
@@ -14,6 +15,7 @@ dist
 
 *.log
 settings.json
+db.conf
 configs.py
 bin
 man
@@ -29,5 +31,7 @@ node_modules
 ## java
 *.class
 
-*.js
-!*.min.js
+# *.js
+# !*.min.js
+
+srvconf.py
