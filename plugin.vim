@@ -51,10 +51,12 @@ let g:gitgutter_highlight_lines = 1
 Plugin 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
+au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
+au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType ruby,python let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
-let NERDSpaceDelims = 1  " 自动添加前置空格
+" let NERDSpaceDelims = 1  " 自动添加前置空格
 
 Plugin 'klen/python-mode'
 let g:pymode_lint_checkers = ['flake8']

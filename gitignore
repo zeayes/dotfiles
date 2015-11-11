@@ -15,6 +15,7 @@ dist
 
 *.log
 settings.json
+settings_dev.json
 db.conf
 configs.py
 bin
@@ -27,6 +28,8 @@ node_modules
 .sass-cache
 .tern-project
 .DS_Store
+
+.idea
 
 ## java
 *.class
