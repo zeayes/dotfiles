@@ -12,6 +12,8 @@ a.out
 *.egg-info
 dist
 
+.idea
+
 
 *.log
 settings.json
@@ -23,6 +25,7 @@ man
 include
 .Python
 node_modules
+pyenv
 
 ## front
 .sass-cache

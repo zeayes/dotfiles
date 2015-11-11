@@ -37,7 +37,7 @@ ZSH_THEME="zeayes"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -66,7 +66,7 @@ export DOCKER_CERT_PATH=/Users/zeayes/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -75,6 +75,8 @@ eval "$(pyenv virtualenv-init -)"
 #   export EDITOR='mvim'
 # fi
 export EDITOR=/usr/bin/vim
+
+export PYENV_ROOT=/usr/local/var/pyenv
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

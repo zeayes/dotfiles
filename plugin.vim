@@ -36,6 +36,8 @@ let g:EasyMotion_smartcase = 1
 Plugin 'zeayes/vim-coloresque'
 " let g:coloresque_keywords = ["-", "#"]
 
+Plugin 'Chiel92/vim-autoformat'
+
 Plugin 'ntpeters/vim-better-whitespace'
 autocmd BufWritePre <buffer> StripWhitespace
 
