@@ -163,6 +163,7 @@ autocmd BufNewFile,BufRead *.mm set filetype=objcpp
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " reset iskeyword and add - to iskeyword
 autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
+autocmd FileType javascript set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
