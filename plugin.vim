@@ -8,14 +8,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nsf/gocode'
 Plugin 'tomasr/molokai'
-Plugin 'zeayes/vim-snippets'
-Plugin 'zeayes/jinja-syntax'
-Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
-Plugin 'marijnh/tern_for_vim'
+Plugin 'honza/vim-snippets'
+" Plugin 'zeayes/vim-snippets'
+Plugin 'zeayes/jinja-syntax'
+Plugin 'elzr/vim-json'
+Plugin 'othree/html5.vim'
+Plugin 'ap/vim-css-color'
+Plugin 'pangloss/vim-javascript'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'tpope/vim-markdown'
 Plugin 'kentaroi/cocoa.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'b4winckler/vim-objc'
@@ -28,6 +30,15 @@ Plugin 'tpope/vim-endwise'
 Plugin 'rust-lang/rust.vim'
 Plugin 'uarun/vim-protobuf'
 Plugin 'solarnz/thrift.vim'
+" Plugin 'jeaye/color_coded'
+Plugin 'rdnetto/YCM-Generator'
+
+Plugin 'ternjs/tern_for_vim'
+let g:tern_show_signature_in_pum = 1
+
+Plugin 'tpope/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
+let g:instant_markdown_slow = 1
 
 Plugin 'Lokaltog/vim-easymotion'
 let g:EasyMotion_smartcase = 1
@@ -58,7 +69,7 @@ au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType ruby,python,go let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
-" let NERDSpaceDelims = 1  " 自动添加前置空格
+let NERDSpaceDelims = 1  " 自动添加前置空格
 
 Plugin 'klen/python-mode'
 let g:pymode_lint_checkers = ['flake8']

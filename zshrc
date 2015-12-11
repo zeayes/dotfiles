@@ -75,6 +75,7 @@ eval "$(pyenv init -)"
 #   export EDITOR='mvim'
 # fi
 export EDITOR=/usr/bin/vim
+export PATH=/Users/zeayes/Library/Python/2.7/bin:$PATH
 
 export PYENV_ROOT=/usr/local/var/pyenv
 

@@ -28,12 +28,12 @@ ln -s plugin.vim ~/.vim/plugin.vim
 ln -s jshintrc ~/.jshintrc
 # config for scss-lint
 ln -s scsslint.yml ~/.scsslint.yml
-# config for plugin marijnh/tern_for_vim
+# config for plugin ternjs/tern_for_vim
 ln -s tern-project  ~/.tern-project
 ```
 
 #### install syntastic checkers
-##### 1. flake8 for python 
+##### 1. flake8 for python
 ```sh
 # for syntastic
 # use flake8 to check python syntax
@@ -56,7 +56,14 @@ sudo npm install scss-lint
 sudo npm install tidy
 ```
 
+#### 5. ternjs for javascript
+```
+cd ~/.vim/bundle/tern_for_vim
+npm install
+```
+
 #### install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+
 
 ##### 1. `MAC`
 ```sh
@@ -73,4 +80,9 @@ git submodule update --init --recursive
 cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=/usr/lib/llvm-3.4 . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_core
 make ycm_support_libs
+```
+
+### install markdown preview
+```sh
+npm -g install instant-markdown-d
 ```
