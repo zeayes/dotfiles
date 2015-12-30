@@ -1,3 +1,4 @@
+set hidden
 set nocompatible
 filetype off
 filetype plugin indent off
@@ -8,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nsf/gocode'
 Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/DrawIt'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
 " Plugin 'zeayes/vim-snippets'
@@ -69,7 +71,7 @@ au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType ruby,python,go let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
-let NERDSpaceDelims = 1  " 自动添加前置空格
+" let NERDSpaceDelims = 1  " 自动添加前置空格
 
 Plugin 'klen/python-mode'
 let g:pymode_lint_checkers = ['flake8']
@@ -280,7 +282,7 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 " let g:ctrlp_user_command = 'find %s -type f'
@@ -291,9 +293,67 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 Plugin 'mileszs/ack.vim'
-let g:ackprg = 'ag --nogroup --nocolor --column'
+if executable("ag")
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 nmap <c-a> :Ack<space>
 Plugin 'dyng/ctrlsf.vim'
-nmap <c-f>f <Plug>CtrlSFPrompt
+let g:ctrlsf_default_root = 'project'
+nmap <C-F>f <Plug>CtrlSFPrompt
+vmap <C-F>f <Plug>CtrlSFVwordPath
+vmap <C-F>F <Plug>CtrlSFVwordExec
+nmap <C-F>n <Plug>CtrlSFCwordPath
+nmap <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+Plugin 'szw/vim-ctrlspace'
+" set showtabline=0
+nmap <C-F>s <ESC>:CtrlSpace<CR>
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+
+Plugin 'tacahiroy/ctrlp-funky'
+nmap <leader>fu <ESC>:CtrlPFunky<CR>
+" narrow the list down with a word under cursor
+nmap <leader>fU <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
+let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_extensions = ['funky']
+
+Plugin 'Shougo/unite.vim'
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nocolor --nogroup -S -C4'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+let g:unite_data_directory='~/.vim/.cache/unite'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable=1
+let g:unite_prompt='» '
+let g:unite_split_rule = 'botright'
+nnoremap <leader>t :<C-u>Unite -start-insert file_rec/async:!<cr>
+nnoremap <leader>f :<C-u>Unite -start-insert file<cr>
+nnoremap <leader>r :<C-u>Unite -start-insert file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite history/yank<cr>
+nnoremap <leader>e :<C-u>Unite buffer<cr>
+" nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+" nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+" nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+" nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+" nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+" nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+    " Play nice with supertab
+    let b:SuperTabDisabled=1
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j> <Plug>(unite_select_next_line)
+    imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+endfunction
 
 call vundle#end()

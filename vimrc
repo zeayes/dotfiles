@@ -162,14 +162,19 @@ autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " reset iskeyword and add - to iskeyword
-autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
-autocmd FileType javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+augroup Frontend
+    au!
+    autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
+    autocmd FileType css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+augroup END
 " autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " change the mapleader from \ to ,
-let mapleader=","
+" let mapleader=","
 " 十六进制格式查看
 nmap <leader>16 <ESC>:%!xxd<ESC>
 " 返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
+nmap tn :tabnext <CR>
+nmap tc :tabclose <CR>
