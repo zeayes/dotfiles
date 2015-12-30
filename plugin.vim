@@ -21,7 +21,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'kentaroi/cocoa.vim'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'b4winckler/vim-objc'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'eraserhd/vim-ios.git'
@@ -296,7 +295,7 @@ Plugin 'mileszs/ack.vim'
 if executable("ag")
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
-nmap <c-a> :Ack<space>
+" nmap <C-a> :Ack<space>
 Plugin 'dyng/ctrlsf.vim'
 let g:ctrlsf_default_root = 'project'
 nmap <C-F>f <Plug>CtrlSFPrompt
@@ -316,13 +315,12 @@ if executable("ag")
 endif
 
 Plugin 'tacahiroy/ctrlp-funky'
-nmap <leader>fu <ESC>:CtrlPFunky<CR>
-" narrow the list down with a word under cursor
-nmap <leader>fU <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
+nmap <C-A> <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 if executable('ag')
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts = '--nocolor --nogroup -S -C4'
@@ -333,18 +331,14 @@ let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable=1
 let g:unite_prompt='» '
 let g:unite_split_rule = 'botright'
-nnoremap <leader>t :<C-u>Unite -start-insert file_rec/async:!<cr>
-nnoremap <leader>f :<C-u>Unite -start-insert file<cr>
-nnoremap <leader>r :<C-u>Unite -start-insert file_mru<cr>
-nnoremap <leader>o :<C-u>Unite -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite history/yank<cr>
-nnoremap <leader>e :<C-u>Unite buffer<cr>
-" nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-" nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-" nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-" nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-" nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-" nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+" nnoremap <leader>t :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<CR>
+nnoremap <leader>f :<C-u>Unite -buffer-name=files -start-insert file<CR>
+nnoremap <leader>r :<C-u>Unite -buffer-name=mru -start-insert file_mru<CR>
+nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<CR>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
+nnoremap <leader>t :<C-u>Unite -buffer-name=tab tab<CR>
+nnoremap <leader>a :<C-u>execute "Unite -buffer-name=ack grep::" . escape(expand('<cword>'),' :\')<CR>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()

@@ -61,11 +61,7 @@ if brew list | grep coreutils > /dev/null ; then
     export PATH=$(brew --prefix llvm)/bin:$PATH
 fi
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/zeayes/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
 # # Preferred editor for local and remote sessions
@@ -77,7 +73,7 @@ eval "$(pyenv init -)"
 export EDITOR=/usr/bin/vim
 export PATH=/Users/zeayes/Library/Python/2.7/bin:$PATH
 
-export PYENV_ROOT=/usr/local/var/pyenv
+# export PYENV_ROOT=/usr/local/var/pyenv
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
