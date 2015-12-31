@@ -70,7 +70,7 @@ au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType ruby,python,go let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
-" let NERDSpaceDelims = 1  " 自动添加前置空格
+let NERDSpaceDelims = 1  " 自动添加前置空格
 
 Plugin 'klen/python-mode'
 let g:pymode_lint_checkers = ['flake8']
@@ -276,7 +276,7 @@ highlight SyntasticErrorSign guifg=white guibg=black
 
 Plugin 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
@@ -295,8 +295,9 @@ Plugin 'mileszs/ack.vim'
 if executable("ag")
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
-" nmap <C-a> :Ack<space>
+nmap <C-a> <ESC>:Ack
 Plugin 'dyng/ctrlsf.vim'
+let g:ctrlsf_context = '-B 3 -A 3'
 let g:ctrlsf_default_root = 'project'
 nmap <C-F>f <Plug>CtrlSFPrompt
 vmap <C-F>f <Plug>CtrlSFVwordPath
@@ -315,7 +316,7 @@ if executable("ag")
 endif
 
 Plugin 'tacahiroy/ctrlp-funky'
-nmap <C-A> <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
+" nmap <C-A> <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
