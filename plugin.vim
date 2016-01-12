@@ -22,7 +22,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'kentaroi/cocoa.vim'
 Plugin 'b4winckler/vim-objc'
-Plugin 'toyamarinyon/vim-swift'
+Plugin 'kballard/vim-swift'
 Plugin 'eraserhd/vim-ios.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'gilligan/vim-lldb'
@@ -100,6 +100,15 @@ let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+let g:airline_powerline_fonts = 1
+" let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#ctrlspace#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+
 
 Plugin 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256

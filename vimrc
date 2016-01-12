@@ -157,6 +157,7 @@ autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.rb :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
+autocmd BufNewFile *.swift :call append(0, "#!/usr/bin/env swift")
 autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp
