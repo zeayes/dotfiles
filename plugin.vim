@@ -28,11 +28,13 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'gilligan/vim-lldb'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
-Plugin 'rust-lang/rust.vim'
 Plugin 'uarun/vim-protobuf'
 Plugin 'solarnz/thrift.vim'
 " Plugin 'jeaye/color_coded'
 Plugin 'rdnetto/YCM-Generator'
+
+Plugin 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
 
 Plugin 'ternjs/tern_for_vim'
 let g:tern_show_signature_in_pum = 1
@@ -226,6 +228,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 let g:ycm_goto_buffer_command='vertical-split'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" let g:ycm_rust_src_path = '/usr/local/rustc-1.6.0/src'
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <c-d> :YcmCompleter GoToDefinition<CR>

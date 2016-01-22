@@ -78,6 +78,8 @@ set shiftwidth=4
 set smartindent
 " 使用C风格的缩进方案
 set cindent
+set breakindent
+set showbreak=>>>
 " vsplit分屏显示在右边
 set splitright
 " split分屏显示在下面
