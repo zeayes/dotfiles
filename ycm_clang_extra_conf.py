@@ -4,80 +4,38 @@
 import os
 import ycm_core
 
-XCODE_BASE = '/Applications/Xcode.app/Contents/Developer/'
-XCODE_INCLUDE = os.path.join(XCODE_BASE, 'Toolchains/XcodeDefault.xctoolchain/usr/include')
-SIMULATOR_BASE = os.path.join(XCODE_BASE, 'Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk')
-FRAMEWORK = os.path.join(SIMULATOR_BASE, 'System/Library/Frameworks')
-INCLUDES = os.path.join(SIMULATOR_BASE, 'usr/include')
-
 flags = [
-    '-isysroot',
-    SIMULATOR_BASE,
-    '-I%s' % XCODE_INCLUDE,
-    '-I%s' % INCLUDES,
-    '-F%s' % FRAMEWORK,
-    '-framework Foundation',
-    '-framework UIKit',
-    '-DNS_BLOCK_ASSERTIONS=1',
-    '-fblocks',
-    '-fobjc-nonfragile-abi',
-    '-fno-builtin',
-    '-m32',
-    '-x',
-    'objective-c',
-    '-arch i386',
-    '-fmessage-length=0',
-    '-std=gnu99',
-    '-fobjc-arc',
-    '-Wno-trigraphs',
-    '-fpascal-strings',
-    '-Os',
-    '-Wno-missing-field-initializers',
-    '-Wno-missing-prototypes',
-    '-Wreturn-type',
-    '-Wno-implicit-atomic-properties',
-    '-Wno-receiver-is-weak',
-    '-Wduplicate-method-match',
     '-Wall',
     '-Wextra',
-    '-Wformat',
-    '-Wno-sign-compare',
-    '-Wno-missing-braces',
-    '-Wparentheses',
-    '-Wswitch',
-    '-Wno-unused-function',
-    '-Wno-unused-label',
-    '-Wno-unused-parameter',
-    '-Wunused-variable',
-    '-Wunused-value',
-    '-Wempty-body',
-    '-Wuninitialized',
-    '-Wno-unknown-pragmas',
-    '-Wno-shadow',
-    '-Wno-four-char-constants',
-    '-Wno-conversion',
-    '-Wno-constant-conversion',
-    '-Wno-int-conversion',
-    '-Wno-enum-conversion',
-    '-Wno-shorten-64-to-32',
-    '-Wpointer-sign',
-    '-Wno-newline-eof',
-    '-Wno-selector',
-    '-Wno-strict-selector-match',
-    '-Wno-undeclared-selector',
-    '-Wno-deprecated-implementations',
+    #  '-Werror',
+    #  '-Wc++98-compat',
+    '-Wno-long-long',
+    '-Wno-variadic-macros',
     '-fexceptions',
-    '-fasm-blocks',
-    '-fstrict-aliasing',
-    '-Wprotocol',
-    '-Wdeprecated-declarations',
-    '-g',
-    '-fvisibility=hidden',
-    '-Wno-sign-conversion',
-    '-fobjc-abi-version=2',
-    '-fobjc-legacy-dispatch',
-    '-mios-simulator-version-min=6.0',
-    '-iquote',
+    '-stdlib=libc++',
+    # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
+    # language to use when compiling headers. So it will guess. Badly. So C++
+    # headers will be compiled as C headers. You don't want that so ALWAYS specify
+    # a "-std=<something>".
+    # For a C project, you would set this to something like 'c99' instead of
+    # 'c++11'.
+    '-std=c99',
+    # ...and the same thing goes for the magic -x option which specifies the
+    # language that the files to be compiled are written in. This is mostly
+    # relevant for c++ headers.
+    # For a C project, you would set this to 'c' instead of 'c++'.
+    '-x',
+    'c',
+    '-I',
+    '.',
+    '-I',
+    'include',
+    '-isystemn',
+    '/usr/include',
+    '-isystemn',
+    '/usr/local/include',
+    '-isystem',
+    '/Library/Developer/CommandLineTools/usr/include',
 ]
 
 compilation_database_folder = ''
@@ -88,6 +46,7 @@ else:
     database = None
 
 SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
+
 
 def DirectoryOfThisScript():
     return os.path.dirname(os.path.abspath(__file__))
@@ -119,7 +78,7 @@ def MakeRelativePathsInFlagsAbsolute(flags, working_directory):
 
         if new_flag:
             new_flags.append(new_flag)
-    return new_flags
+            return new_flags
 
 
 def IsHeaderFile(filename):

@@ -4,10 +4,80 @@
 import os
 import ycm_core
 
+XCODE_BASE = '/Applications/Xcode.app/Contents/Developer/'
+XCODE_INCLUDE = os.path.join(XCODE_BASE, 'Toolchains/XcodeDefault.xctoolchain/usr/include')
+SIMULATOR_BASE = os.path.join(XCODE_BASE, 'Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk')
+FRAMEWORK = os.path.join(SIMULATOR_BASE, 'System/Library/Frameworks')
+INCLUDES = os.path.join(SIMULATOR_BASE, 'usr/include')
+
 flags = [
-    '-g',
+    '-isysroot',
+    SIMULATOR_BASE,
+    '-I%s' % XCODE_INCLUDE,
+    '-I%s' % INCLUDES,
+    '-F%s' % FRAMEWORK,
+    '-framework Foundation',
+    '-framework UIKit',
+    '-DNS_BLOCK_ASSERTIONS=1',
+    '-fblocks',
+    '-fobjc-nonfragile-abi',
+    '-fno-builtin',
+    '-m32',
+    '-x',
+    'objective-c',
+    '-arch i386',
+    '-fmessage-length=0',
+    '-std=gnu99',
+    '-fobjc-arc',
+    '-Wno-trigraphs',
+    '-fpascal-strings',
+    '-Os',
+    '-Wno-missing-field-initializers',
+    '-Wno-missing-prototypes',
+    '-Wreturn-type',
+    '-Wno-implicit-atomic-properties',
+    '-Wno-receiver-is-weak',
+    '-Wduplicate-method-match',
     '-Wall',
-    '-std=c99'
+    '-Wextra',
+    '-Wformat',
+    '-Wno-sign-compare',
+    '-Wno-missing-braces',
+    '-Wparentheses',
+    '-Wswitch',
+    '-Wno-unused-function',
+    '-Wno-unused-label',
+    '-Wno-unused-parameter',
+    '-Wunused-variable',
+    '-Wunused-value',
+    '-Wempty-body',
+    '-Wuninitialized',
+    '-Wno-unknown-pragmas',
+    '-Wno-shadow',
+    '-Wno-four-char-constants',
+    '-Wno-conversion',
+    '-Wno-constant-conversion',
+    '-Wno-int-conversion',
+    '-Wno-enum-conversion',
+    '-Wno-shorten-64-to-32',
+    '-Wpointer-sign',
+    '-Wno-newline-eof',
+    '-Wno-selector',
+    '-Wno-strict-selector-match',
+    '-Wno-undeclared-selector',
+    '-Wno-deprecated-implementations',
+    '-fexceptions',
+    '-fasm-blocks',
+    '-fstrict-aliasing',
+    '-Wprotocol',
+    '-Wdeprecated-declarations',
+    '-g',
+    '-fvisibility=hidden',
+    '-Wno-sign-conversion',
+    '-fobjc-abi-version=2',
+    '-fobjc-legacy-dispatch',
+    '-mios-simulator-version-min=6.0',
+    '-iquote',
 ]
 
 compilation_database_folder = ''
@@ -18,6 +88,7 @@ else:
     database = None
 
 SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
+
 
 def DirectoryOfThisScript():
     return os.path.dirname(os.path.abspath(__file__))
