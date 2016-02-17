@@ -8,7 +8,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nsf/gocode'
-Plugin 'tomasr/molokai'
+" Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
@@ -20,14 +20,14 @@ Plugin 'ap/vim-css-color'
 Plugin 'pangloss/vim-javascript'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'kentaroi/cocoa.vim'
-Plugin 'b4winckler/vim-objc'
-Plugin 'kballard/vim-swift'
-Plugin 'eraserhd/vim-ios.git'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'gilligan/vim-lldb'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-endwise'
+" Plugin 'kentaroi/cocoa.vim'
+" Plugin 'b4winckler/vim-objc'
+" Plugin 'kballard/vim-swift'
+" Plugin 'eraserhd/vim-ios.git'
+" Plugin 'rhysd/vim-clang-format'
+" Plugin 'gilligan/vim-lldb'
+" Plugin 'vim-ruby/vim-ruby'
+" Plugin 'tpope/vim-endwise'
 Plugin 'uarun/vim-protobuf'
 Plugin 'solarnz/thrift.vim'
 " Plugin 'jeaye/color_coded'
@@ -50,7 +50,7 @@ let g:EasyMotion_smartcase = 1
 Plugin 'zeayes/vim-coloresque'
 " let g:coloresque_keywords = ["-", "#"]
 
-Plugin 'Chiel92/vim-autoformat'
+" Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'ntpeters/vim-better-whitespace'
 autocmd BufWritePre <buffer> StripWhitespace
@@ -91,6 +91,8 @@ au FileType go nmap ds <Plug>(go-def-split)
 au FileType go nmap dv <Plug>(go-def-vertical)
 autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
+Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'bling/vim-airline'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -109,8 +111,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#ctrlspace#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-
-
 
 Plugin 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
