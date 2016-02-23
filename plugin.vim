@@ -69,7 +69,7 @@ autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
 au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-au FileType ruby,python,go let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType ruby,python,go,groovy let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
@@ -229,6 +229,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command='vertical-split'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_rust_src_path = '/usr/local/rustc-1.6.0/src'
+let g:ycm_filetype_blacklist = {'tagbar' : 1, 'nerdtree' : 1}
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
@@ -251,11 +252,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 Plugin 'scrooloose/syntastic'
-let g:syntastic_mode_map = {
-            \ 'mode': 'active',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': []
-            \ }
+let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java']}
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_signs=1
@@ -263,8 +260,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_css_csslint_args = '
-    \ --ignore=ids,box-model,gradients,duplicate-background-images'
+let g:syntastic_css_csslint_args = '--ignore=ids,box-model,gradients,duplicate-background-images'
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_scss_scss_lint_args = '--config ~/.scsslint.yml'
 let g:syntastic_javascript_checkers = ['jshint']

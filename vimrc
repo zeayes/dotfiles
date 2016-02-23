@@ -134,6 +134,8 @@ function! CompileRun()
         exec "!clang -fobjc-arc % && ./a.out"
     elseif &filetype == 'python'
         exec "!python %"
+    elseif &filetype == 'java'
+        exec "!javac % && java %:r"
     elseif &filetype == 'ruby'
         exec "!ruby %"
     elseif &filetype == 'swift'

@@ -73,6 +73,10 @@ fi
 export EDITOR=/usr/bin/vim
 export PATH=/Users/zeayes/Library/Python/2.7/bin:$PATH
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home #jdk安装路径
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
 # export PYENV_ROOT=/usr/local/var/pyenv
 
 # Compilation flags
