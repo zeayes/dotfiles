@@ -33,6 +33,9 @@ Plugin 'solarnz/thrift.vim'
 " Plugin 'jeaye/color_coded'
 Plugin 'rdnetto/YCM-Generator'
 
+" Plugin 'artur-shaik/vim-javacomplete2'
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 Plugin 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 
@@ -74,11 +77,11 @@ au FileType ruby,python,go,groovy let b:delimitMate_matchpairs = "(:),[:],{:}"
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
 
-Plugin 'klen/python-mode'
-let g:pymode_lint_checkers = ['flake8']
-let g:pymode_trim_whitespaces = 0
-let g:pymode_options = 0
-let g:pymode_rope = 0
+" Plugin 'klen/python-mode'
+" let g:pymode_lint_checkers = ['flake8']
+" let g:pymode_trim_whitespaces = 0
+" let g:pymode_options = 0
+" let g:pymode_rope = 0
 
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0

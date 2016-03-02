@@ -87,5 +87,6 @@ export SSH_KEY_PATH="~/.ssh/id_rsa.pub"
 
 export HOMEBREW_BOTTLE_DOMAIN="http://7xkcej.dl1.z0.glb.clouddn.com"
 
+alias mvn="mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true"
 alias supervisorctl="supervisorctl -c /usr/local/supervisor/supervisord.conf"
 # alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
