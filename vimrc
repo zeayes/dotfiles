@@ -169,8 +169,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " reset iskeyword and add - to iskeyword
 augroup Frontend
     au!
-    autocmd FileType css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
-    autocmd FileType css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+    autocmd FileType xml,css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
+    autocmd FileType xml,css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
 augroup END
 " autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 " Return to last edit position when opening files (You want this!)
