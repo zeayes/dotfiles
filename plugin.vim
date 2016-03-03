@@ -111,6 +111,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#ctrlspace#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -295,6 +296,7 @@ let g:multi_cursor_quit_key='<Esc>'
 Plugin 'ctrlpvim/ctrlp.vim'
 " let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'r'
 " let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|bin|include|lib|node_modules|.sass_cache)$',
