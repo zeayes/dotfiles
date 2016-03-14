@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'nsf/gocode'
+" Plugin 'nsf/gocode'
 " Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'tpope/vim-surround'
@@ -61,6 +61,10 @@ autocmd BufWritePre <buffer> StripWhitespace
 Plugin 'hdima/python-syntax'
 let python_highlight_all = 1
 
+Plugin 'hynek/vim-python-pep8-indent'
+
+Plugin 'Valloric/MatchTagAlways'
+
 Plugin 'docunext/closetag.vim'
 let g:closetag_html_style=1
 
@@ -88,11 +92,12 @@ let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key = '<C-Z>'
 autocmd FileType html,css,scss EmmetInstall
 
-Plugin 'fatih/vim-go'
+" supported by ycm
+" Plugin 'fatih/vim-go'
 " au FileType go nmap dt <Plug>(go-def-tab)
-au FileType go nmap ds <Plug>(go-def-split)
-au FileType go nmap dv <Plug>(go-def-vertical)
-autocmd FileType go autocmd BufWritePre <buffer> GoImports
+" au FileType go nmap ds <Plug>(go-def-split)
+" au FileType go nmap dv <Plug>(go-def-vertical)
+" autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -256,7 +261,6 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 Plugin 'scrooloose/syntastic'
-let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java']}
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_signs=1
@@ -283,6 +287,7 @@ let g:syntastic_python_flake8_args = '
 " let g:syntastic_python_checkers=['pyflakes']
 " let g:syntastic_python_checkers=['pylint']
 " let g:syntastic_quiet_messages = {'level': 'warning'}
+let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java']}
 highlight SyntasticErrorSign guifg=white guibg=black
 
 
@@ -296,7 +301,7 @@ let g:multi_cursor_quit_key='<Esc>'
 Plugin 'ctrlpvim/ctrlp.vim'
 " let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'r'
+" let g:ctrlp_working_path_mode = 'r'
 " let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|bin|include|lib|node_modules|.sass_cache)$',
@@ -330,8 +335,9 @@ endif
 
 Plugin 'tacahiroy/ctrlp-funky'
 " nmap <C-A> <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
-let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
 
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'

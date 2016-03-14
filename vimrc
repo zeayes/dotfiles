@@ -166,6 +166,7 @@ autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.vue set filetype=html
 " reset iskeyword and add - to iskeyword
 augroup Frontend
     au!
