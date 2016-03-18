@@ -160,6 +160,9 @@ endfunction
 autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.rb :call append(0, "\# -*- coding: utf-8 -*-")
+autocmd BufNewFile *.css :call append(0, '@charset "UTF-8;"')
+autocmd BufNewFile *.scss :call append(0, '@charset "UTF-8;"')
+autocmd BufNewFile *.sass :call append(0, '@charset "UTF-8;"')
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd BufNewFile *.swift :call append(0, "#!/usr/bin/env swift")
 autocmd FileType make set noexpandtab

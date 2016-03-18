@@ -42,6 +42,9 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'ternjs/tern_for_vim'
 let g:tern_show_signature_in_pum = 1
 
+" Plugin 'mxw/vim-jsx'
+" let g:jsx_ext_required = 0
+
 Plugin 'tpope/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
 let g:instant_markdown_slow = 1
@@ -272,6 +275,7 @@ let g:syntastic_css_csslint_args = '--ignore=ids,box-model,gradients,duplicate-b
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_scss_scss_lint_args = '--config ~/.scsslint.yml'
 let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
 let g:syntastic_html_tidy_quiet_messages = {"level": "warnings"}
 let g:syntastic_html_tidy_ignore_errors = [
