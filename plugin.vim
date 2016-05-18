@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-" Plugin 'nsf/gocode'
+Plugin 'nsf/gocode'
 " Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'tpope/vim-surround'
@@ -330,12 +330,25 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-Plugin 'szw/vim-ctrlspace'
+" Plugin 'szw/vim-ctrlspace'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
 " set showtabline=0
 nmap <C-F>s <ESC>:CtrlSpace<CR>
+let g:CtrlSpaceSearchTiming = 500
+let g:airline_exclude_preview = 1
+hi link CtrlSpaceNormal   PMenu
+hi link CtrlSpaceSelected PMenuSel
+hi link CtrlSpaceSearch   Search
+hi link CtrlSpaceStatus   StatusLine
+if has("gui_running")
+    " Settings for MacVim and Inconsolata font
+    let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+endif
 if executable("ag")
     let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
+
+
 
 Plugin 'tacahiroy/ctrlp-funky'
 " nmap <C-A> <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
