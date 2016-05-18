@@ -13,9 +13,9 @@ a.out
 dist
 
 *.log
-settings.json
+#settings.json
 settings_dev.json
-db.conf
+#db.conf
 configs.py
 bin
 man

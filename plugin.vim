@@ -96,11 +96,11 @@ let g:user_emmet_leader_key = '<C-Z>'
 autocmd FileType html,css,scss EmmetInstall
 
 " supported by ycm
-" Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 " au FileType go nmap dt <Plug>(go-def-tab)
 " au FileType go nmap ds <Plug>(go-def-split)
 " au FileType go nmap dv <Plug>(go-def-vertical)
-" autocmd FileType go autocmd BufWritePre <buffer> GoImports
+autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -240,7 +240,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 let g:ycm_goto_buffer_command='vertical-split'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_rust_src_path = '/usr/local/rustc-1.7.0/src'
+let g:ycm_rust_src_path = '/usr/local/rustc-1.8.0/src'
 let g:ycm_filetype_blacklist = {'tagbar' : 1, 'nerdtree' : 1}
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR>

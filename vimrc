@@ -24,9 +24,10 @@ set wildmenu
 set wildmode=list:longest,full
 set whichwrap=b,s,h,l,<,>,[,]
 " 启用行号
-set nu
+set number
 " 禁用相对行号
 set nornu
+" set relativenumber
 " 光标离上下3行滚动
 set scrolloff=3
 " 显示当前模式
@@ -176,7 +177,7 @@ augroup Frontend
     autocmd FileType xml,css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
     autocmd FileType xml,css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
 augroup END
-" autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
+autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " change the mapleader from \ to ,
