@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'nsf/gocode'
+" Plugin 'nsf/gocode'
 " Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'tpope/vim-surround'
@@ -42,12 +42,16 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'ternjs/tern_for_vim'
 let g:tern_show_signature_in_pum = 1
 
+Plugin 'mxw/vim-jsx.git'
+let g:jsx_ext_required = 0
+
+
 " Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 
 Plugin 'tpope/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
-let g:instant_markdown_slow = 1
+" Plugin 'suan/vim-instant-markdown'
+" let g:instant_markdown_slow = 1
 
 Plugin 'Lokaltog/vim-easymotion'
 let g:EasyMotion_smartcase = 1
@@ -79,7 +83,7 @@ autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
 au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-au FileType ruby,python,go,groovy let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType ruby,python,go,groovy,cpp let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
@@ -100,7 +104,8 @@ Plugin 'fatih/vim-go'
 " au FileType go nmap dt <Plug>(go-def-tab)
 " au FileType go nmap ds <Plug>(go-def-split)
 " au FileType go nmap dv <Plug>(go-def-vertical)
-autocmd FileType go autocmd BufWritePre <buffer> GoImports
+let g:go_fmt_command = "goimports"
+" autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -274,8 +279,8 @@ let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_css_csslint_args = '--ignore=ids,box-model,gradients,duplicate-background-images'
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_scss_scss_lint_args = '--config ~/.scsslint.yml'
-let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
 let g:syntastic_html_tidy_quiet_messages = {"level": "warnings"}
 let g:syntastic_html_tidy_ignore_errors = [
