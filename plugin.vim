@@ -103,7 +103,8 @@ autocmd FileType html,css,scss EmmetInstall
 Plugin 'fatih/vim-go'
 " au FileType go nmap dt <Plug>(go-def-tab)
 " au FileType go nmap ds <Plug>(go-def-split)
-" au FileType go nmap dv <Plug>(go-def-vertical)
+au FileType go nmap <c-d> <Plug>(go-def-vertical)
+" au FileType go nmap <Leader>s <Plug>(go-implements))
 let g:go_fmt_command = "goimports"
 " autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
@@ -249,10 +250,10 @@ let g:ycm_rust_src_path = '/usr/local/rustc-1.8.0/src'
 let g:ycm_filetype_blacklist = {'tagbar' : 1, 'nerdtree' : 1}
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
-nnoremap <c-h> :YcmCompleter GoToDeclaration<CR>
-nnoremap <c-e> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <F2> :YcmForceCompileAndDiagnostics<CR>
+au FileType !go nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
+au FileType !go nnoremap <c-h> :YcmCompleter GoToDeclaration<CR>
+au FileType !go nnoremap <c-e> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 Plugin 'SirVer/ultisnips'
