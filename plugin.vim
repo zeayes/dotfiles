@@ -251,9 +251,11 @@ let g:ycm_filetype_blacklist = {'tagbar' : 1, 'nerdtree' : 1}
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <F2> :YcmForceCompileAndDiagnostics<CR>
-au FileType !go nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
-au FileType !go nnoremap <c-h> :YcmCompleter GoToDeclaration<CR>
-au FileType !go nnoremap <c-e> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+if &filetype != 'go'
+    nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
+    nnoremap <c-h> :YcmCompleter GoToDeclaration<CR>
+    nnoremap <c-e> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
 
 
 Plugin 'SirVer/ultisnips'
