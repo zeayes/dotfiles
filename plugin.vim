@@ -255,7 +255,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 " [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-let g:ycm_goto_buffer_command='vertical-split'
+" let g:ycm_goto_buffer_command='vertical-split'
+let g:ycm_goto_buffer_command='same-buffer'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_rust_src_path = '/usr/local/rustc-1.8.0/src'
 let g:ycm_filetype_blacklist = {'tagbar' : 1, 'nerdtree' : 1}
