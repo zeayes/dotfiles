@@ -44,7 +44,7 @@ ZSH_THEME="zeayes"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(autojump git osx colored-man supervisor brew vundle tmux)
+plugins=(autojump git go osx colored-man supervisor brew vundle tmux redis-cli)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,7 +70,8 @@ fi
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR=/usr/bin/vim
+# export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/opt/vim/bin/vim
 export PATH=/Users/zeayes/Library/Python/2.7/bin:$PATH
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home #jdk安装路径

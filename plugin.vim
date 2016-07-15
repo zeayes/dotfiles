@@ -31,7 +31,7 @@ Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'uarun/vim-protobuf'
 Plugin 'solarnz/thrift.vim'
 " Plugin 'jeaye/color_coded'
-Plugin 'rdnetto/YCM-Generator'
+" Plugin 'rdnetto/YCM-Generator'
 
 " Plugin 'artur-shaik/vim-javacomplete2'
 " autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -103,9 +103,20 @@ autocmd FileType html,css,scss EmmetInstall
 Plugin 'fatih/vim-go'
 " au FileType go nmap dt <Plug>(go-def-tab)
 " au FileType go nmap ds <Plug>(go-def-split)
-au FileType go nmap <c-d> <Plug>(go-def-vertical)
+au FileType go nmap <c-d> <Plug>(go-def)
+au FileType go nmap <c-e> <Plug>(go-def-pop)
+" au FileType go nmap <c-d> <Plug>(go-def-vertical)
 " au FileType go nmap <Leader>s <Plug>(go-implements))
 let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 " autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
 Plugin 'vim-airline/vim-airline-themes'

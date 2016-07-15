@@ -79,7 +79,7 @@ set shiftwidth=4
 set smartindent
 " 使用C风格的缩进方案
 set cindent
-set breakindent
+" set breakindent
 set showbreak=>>>
 " vsplit分屏显示在右边
 set splitright
@@ -186,5 +186,6 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 nmap <leader>16 <ESC>:%!xxd<ESC>
 " 返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
+nmap bn :bNext <CR>
 nmap tn :tabnext <CR>
 nmap tc :tabclose <CR>
