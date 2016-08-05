@@ -73,8 +73,6 @@ set nowb
 set autochdir
 " 启用自动缩进
 set autoindent
-" 设置缩进的宽度为4
-set shiftwidth=4
 " 为C程序提供自动缩进
 set smartindent
 " 使用C风格的缩进方案
@@ -161,9 +159,9 @@ endfunction
 autocmd BufNewFile *.sh :call append(0, "\#!/bin/bash")
 autocmd BufNewFile *.py :call append(0, "\# -*- coding: utf-8 -*-")
 autocmd BufNewFile *.rb :call append(0, "\# -*- coding: utf-8 -*-")
-autocmd BufNewFile *.css :call append(0, '@charset "UTF-8;"')
-autocmd BufNewFile *.scss :call append(0, '@charset "UTF-8;"')
-autocmd BufNewFile *.sass :call append(0, '@charset "UTF-8;"')
+autocmd BufNewFile *.css :call append(0, '@charset "utf-8;"')
+" autocmd BufNewFile *.scss :call append(0, '@charset "utf-8;"')
+" autocmd BufNewFile *.sass :call append(0, '@charset "utf-8;"')
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd BufNewFile *.swift :call append(0, "#!/usr/bin/env swift")
 autocmd FileType make set noexpandtab
@@ -176,8 +174,9 @@ augroup Frontend
     au!
     autocmd FileType xml,css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
     autocmd FileType xml,css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+    autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
-autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
+" autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " change the mapleader from \ to ,

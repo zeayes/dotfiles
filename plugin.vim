@@ -17,7 +17,7 @@ Plugin 'zeayes/jinja-syntax'
 Plugin 'elzr/vim-json'
 Plugin 'othree/html5.vim'
 Plugin 'ap/vim-css-color'
-Plugin 'pangloss/vim-javascript'
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evanmiller/nginx-vim-syntax'
 " Plugin 'kentaroi/cocoa.vim'
@@ -39,15 +39,11 @@ Plugin 'solarnz/thrift.vim'
 Plugin 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 
+Plugin 'pangloss/vim-javascript'
+let javascript_enable_domhtmlcss = 1
+
 Plugin 'ternjs/tern_for_vim'
 let g:tern_show_signature_in_pum = 1
-
-Plugin 'mxw/vim-jsx.git'
-let g:jsx_ext_required = 0
-
-
-" Plugin 'mxw/vim-jsx'
-" let g:jsx_ext_required = 0
 
 Plugin 'tpope/vim-markdown'
 " Plugin 'suan/vim-instant-markdown'
@@ -115,8 +111,8 @@ let g:go_highlight_functions = 1
 " let g:go_highlight_operators = 1
 " let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+" let g:go_metalinter_autosave = 1
+" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 " autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
 Plugin 'vim-airline/vim-airline-themes'

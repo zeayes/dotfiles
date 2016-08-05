@@ -44,7 +44,7 @@ ZSH_THEME="zeayes"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(autojump git go osx colored-man supervisor brew vundle tmux redis-cli)
+plugins=(autojump git go osx colored-man supervisor brew vundle tmux redis-cli docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,6 +87,8 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export SSH_KEY_PATH="~/.ssh/id_rsa.pub"
 
 export HOMEBREW_BOTTLE_DOMAIN="http://7xkcej.dl1.z0.glb.clouddn.com"
+#export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+#export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 
 alias mvn="mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true"
 alias supervisorctl="supervisorctl -c /usr/local/etc/supervisord.ini"
