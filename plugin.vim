@@ -39,6 +39,7 @@ Plugin 'solarnz/thrift.vim'
 Plugin 'rust-lang/rust.vim'
 " let g:rustfmt_autosave = 1
 
+Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 let javascript_enable_domhtmlcss = 1
 
