@@ -302,9 +302,9 @@ let g:syntastic_html_tidy_ignore_errors = [
             \ ]
 " let g:syntastic_html_tidy_args = '--show-warnings false'
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args = '
-    \ --max-line-length=120 --max-complexity=12
-    \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
+" let g:syntastic_python_flake8_args = '
+    " \ --max-line-length=120 --max-complexity=12
+    " \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
 " let g:syntastic_python_checkers=['pyflakes']
 " let g:syntastic_python_checkers=['pylint']
 " let g:syntastic_quiet_messages = {'level': 'warning'}
