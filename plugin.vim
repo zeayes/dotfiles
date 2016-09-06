@@ -100,6 +100,8 @@ autocmd FileType html,css,scss EmmetInstall
 Plugin 'fatih/vim-go'
 " au FileType go nmap dt <Plug>(go-def-tab)
 " au FileType go nmap ds <Plug>(go-def-split)
+" let g:go_def_mode = 'guru'
+let g:go_def_mode = 'godef'
 au FileType go nmap <c-d> <Plug>(go-def)
 au FileType go nmap <c-e> <Plug>(go-def-pop)
 " au FileType go nmap <c-d> <Plug>(go-def-vertical)
@@ -281,10 +283,15 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 Plugin 'scrooloose/syntastic'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
+" let g:syntastic_auto_loc_list = 1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_css_checkers = ['csslint']
@@ -302,12 +309,15 @@ let g:syntastic_html_tidy_ignore_errors = [
             \ ]
 " let g:syntastic_html_tidy_args = '--show-warnings false'
 let g:syntastic_python_checkers=['flake8']
-" let g:syntastic_python_flake8_args = '
-    " \ --max-line-length=120 --max-complexity=12
-    " \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
+let g:syntastic_python_flake8_args = '
+    \ --max-line-length=120 --max-complexity=12
+    \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
 " let g:syntastic_python_checkers=['pyflakes']
 " let g:syntastic_python_checkers=['pylint']
 " let g:syntastic_quiet_messages = {'level': 'warning'}
+let g:syntastic_go_checkers = ['gometalinter']
+let g:syntastic_go_gometalinter_args = ['--fast']
+" let g:syntastic_go_gometalinter_args = ['-disable deadcode']
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java']}
 highlight SyntasticErrorSign guifg=white guibg=black
 
