@@ -20,6 +20,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'keith/swift.vim'
 " Plugin 'kentaroi/cocoa.vim'
 " Plugin 'b4winckler/vim-objc'
 " Plugin 'kballard/vim-swift'
@@ -80,7 +81,7 @@ autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
 au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-au FileType ruby,python,go,groovy,cpp let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
@@ -317,6 +318,8 @@ let g:syntastic_python_flake8_args = '
 " let g:syntastic_quiet_messages = {'level': 'warning'}
 let g:syntastic_go_checkers = ['gometalinter']
 let g:syntastic_go_gometalinter_args = ['--fast']
+" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:syntastic_swift_checkers = ['swiftlint']
 " let g:syntastic_go_gometalinter_args = ['-disable deadcode']
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java']}
 highlight SyntasticErrorSign guifg=white guibg=black

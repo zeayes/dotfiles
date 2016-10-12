@@ -78,6 +78,9 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
+export PATH=/usr/local/bin:$PATH
+export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
+
 # export PYENV_ROOT=/usr/local/var/pyenv
 
 # Compilation flags
@@ -91,5 +94,5 @@ export HOMEBREW_BOTTLE_DOMAIN="http://7xkcej.dl1.z0.glb.clouddn.com"
 #export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 
 alias mvn="mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true"
-alias supervisorctl="supervisorctl -c /usr/local/supervisor/supervisord.conf"
+alias supervisorctl="supervisorctl -c /usr/local/etc/supervisord.ini"
 # alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"

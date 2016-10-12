@@ -163,7 +163,7 @@ autocmd BufNewFile *.css :call append(0, '@charset "utf-8;"')
 " autocmd BufNewFile *.scss :call append(0, '@charset "utf-8;"')
 " autocmd BufNewFile *.sass :call append(0, '@charset "utf-8;"')
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
-autocmd BufNewFile *.swift :call append(0, "#!/usr/bin/env swift")
+" autocmd BufNewFile *.swift :call append(0, "#!/usr/bin/env swift")
 autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp

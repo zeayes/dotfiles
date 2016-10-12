@@ -18,3 +18,5 @@
     ci = commit
     st = status
     br = branch
+[url "git@git.moumentei.com:"]
+	insteadOf = http://git.moumentei.com/
