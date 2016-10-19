@@ -1,104 +1,97 @@
-set hidden
-set nocompatible
-filetype off
-filetype plugin indent off
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Plug 'nsf/gocode'
+" Plug 'tomasr/molokai'
+Plug 'vim-scripts/DrawIt'
+Plug 'tpope/vim-surround'
+Plug 'honza/vim-snippets'
+" Plug 'zeayes/vim-snippets'
+Plug 'zeayes/jinja-syntax', {'for': 'jinja'}
+Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'othree/html5.vim' {'for': ['html', 'jinja']}
+Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'sass']}
+Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss', 'sass']}
+Plug 'cakebaker/scss-syntax.vim', {'for': ['scss']}
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'keith/swift.vim', {'for': 'swift'}
+Plug 'maralla/completor.vim'
+" Plug 'kentaroi/cocoa.vim'
+" Plug 'b4winckler/vim-objc'
+" Plug 'kballard/vim-swift'
+" Plug 'eraserhd/vim-ios.git'
+" Plug 'rhysd/vim-clang-format'
+" Plug 'gilligan/vim-lldb'
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-endwise'
+Plug 'uarun/vim-protobuf'
+Plug 'solarnz/thrift.vim', {'for': 'thrift'}
+" Plug 'jeaye/color_coded'
+" Plug 'rdnetto/YCM-Generator'
 
-Plugin 'gmarik/Vundle.vim'
-" Plugin 'nsf/gocode'
-" Plugin 'tomasr/molokai'
-Plugin 'vim-scripts/DrawIt'
-Plugin 'tpope/vim-surround'
-Plugin 'honza/vim-snippets'
-" Plugin 'zeayes/vim-snippets'
-Plugin 'zeayes/jinja-syntax'
-Plugin 'elzr/vim-json'
-Plugin 'othree/html5.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'keith/swift.vim'
-" Plugin 'kentaroi/cocoa.vim'
-" Plugin 'b4winckler/vim-objc'
-" Plugin 'kballard/vim-swift'
-" Plugin 'eraserhd/vim-ios.git'
-" Plugin 'rhysd/vim-clang-format'
-" Plugin 'gilligan/vim-lldb'
-" Plugin 'vim-ruby/vim-ruby'
-" Plugin 'tpope/vim-endwise'
-Plugin 'uarun/vim-protobuf'
-Plugin 'solarnz/thrift.vim'
-" Plugin 'jeaye/color_coded'
-" Plugin 'rdnetto/YCM-Generator'
-
-" Plugin 'artur-shaik/vim-javacomplete2'
+" Plug 'artur-shaik/vim-javacomplete2'
 " autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " let g:rustfmt_autosave = 1
 
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx', {'for': 'javascript'}
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 let javascript_enable_domhtmlcss = 1
 
-Plugin 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim', {'for': 'javascript'}
 let g:tern_show_signature_in_pum = 1
 
-Plugin 'tpope/vim-markdown'
-" Plugin 'suan/vim-instant-markdown'
+Plug 'tpope/vim-markdown', {'for': ['markdown']}
+" Plug 'suan/vim-instant-markdown'
 " let g:instant_markdown_slow = 1
 
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 let g:EasyMotion_smartcase = 1
 "let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
-Plugin 'zeayes/vim-coloresque'
+Plug 'zeayes/vim-coloresque'
 " let g:coloresque_keywords = ["-", "#"]
 
-" Plugin 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 autocmd BufWritePre <buffer> StripWhitespace
 
-Plugin 'hdima/python-syntax'
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'hdima/python-syntax', {'for': 'python'}
 let python_highlight_all = 1
 
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'Valloric/MatchTagAlways'
 
-Plugin 'Valloric/MatchTagAlways'
-
-Plugin 'docunext/closetag.vim'
+Plug 'docunext/closetag.vim'
 let g:closetag_html_style=1
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 let g:gitgutter_highlight_lines = 1
 
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
 au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),[:],{:}"
 
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
 
-" Plugin 'klen/python-mode'
+" Plug 'klen/python-mode'
 " let g:pymode_lint_checkers = ['flake8']
 " let g:pymode_trim_whitespaces = 0
 " let g:pymode_options = 0
 " let g:pymode_rope = 0
 
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'xml', 'css', 'scss', 'sass']}
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key = '<C-Z>'
 autocmd FileType html,css,scss EmmetInstall
 
 " supported by ycm
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
 " au FileType go nmap dt <Plug>(go-def-tab)
 " au FileType go nmap ds <Plug>(go-def-split)
 " let g:go_def_mode = 'guru'
@@ -119,9 +112,9 @@ let g:go_highlight_build_constraints = 1
 " let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 " autocmd FileType go autocmd BufWritePre <buffer> GoImports
 
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -141,13 +134,13 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#ctrlspace#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -160,7 +153,7 @@ nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gi :Git add -p %<CR>
 nnoremap <silent> <leader>gg :SignifyToggle<CR>
 
-Plugin 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -186,7 +179,7 @@ autocmd Syntax * RainbowParenthesesLoadRound
 autocmd Syntax * RainbowParenthesesLoadSquare
 autocmd Syntax * RainbowParenthesesLoadBraces
 
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 nmap nt :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\~$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$']
@@ -201,7 +194,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 nmap <Leader>a& :Tabularize /&<CR>
 vmap <Leader>a& :Tabularize /&<CR>
 nmap <Leader>a= :Tabularize /=<CR>
@@ -218,7 +211,7 @@ nmap <Leader>a,, :Tabularize /,\zs<CR>
 vmap <Leader>a,, :Tabularize /,\zs<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 nmap tb :TagbarToggle <CR>
 let tagbar_left = 1
 let tagbar_width = 32
@@ -236,7 +229,7 @@ let g:tagbar_type_go = {
             \ 'ctagsargs' : '-sort -silent'
             \ }
 
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'do': '~/.vim/plugged/YouCompleteMe/install.py --clang-completer'}
 " set completeopt=longest,menu,preview
 set completeopt=longest,menu
 let g:ycm_error_symbol='>>'
@@ -270,20 +263,20 @@ if &filetype != 'go'
 endif
 
 
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " let g:UltiSnipsSnippetDirectories=["bundle/ultisnips/UltiSnips"]
 let g:UltiSnipsEditSplit="vertical"
 
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -325,14 +318,14 @@ let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java']}
 highlight SyntasticErrorSign guifg=white guibg=black
 
 
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 " let g:ctrlp_working_path_mode = 'r'
@@ -343,12 +336,12 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 if executable("ag")
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 nmap <C-a> <ESC>:Ack
-Plugin 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_context = '-B 3 -A 3'
 let g:ctrlsf_default_root = 'project'
 nmap <C-F>f <Plug>CtrlSFPrompt
@@ -360,8 +353,8 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-" Plugin 'szw/vim-ctrlspace'
-Plugin 'vim-ctrlspace/vim-ctrlspace'
+" Plug 'szw/vim-ctrlspace'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 " set showtabline=0
 nmap <C-F>s <ESC>:CtrlSpace<CR>
 let g:CtrlSpaceSearchTiming = 500
@@ -380,14 +373,14 @@ endif
 
 
 
-Plugin 'tacahiroy/ctrlp-funky'
+Plug 'tacahiroy/ctrlp-funky'
 " nmap <C-A> <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
 if executable('ag')
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts = '--nocolor --nogroup -S -C4'
@@ -417,4 +410,4 @@ function! s:unite_settings()
     imap <buffer> <C-k> <Plug>(unite_select_previous_line)
 endfunction
 
-call vundle#end()
+call plug#end()

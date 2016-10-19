@@ -13,6 +13,8 @@ colorscheme solarized
 " colorscheme molokai
 " 设置语法高亮
 syntax on
+set nocompatible
+set hidden
 "set colorcolumn=4,80
 "set modeline
 set history=700
