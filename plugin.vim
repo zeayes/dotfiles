@@ -8,7 +8,7 @@ Plug 'honza/vim-snippets'
 " Plug 'zeayes/vim-snippets'
 Plug 'zeayes/jinja-syntax', {'for': 'jinja'}
 Plug 'elzr/vim-json', {'for': 'json'}
-Plug 'othree/html5.vim' {'for': ['html', 'jinja']}
+Plug 'othree/html5.vim', {'for': ['html', 'jinja']}
 Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'sass']}
 Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss', 'sass']}
 Plug 'cakebaker/scss-syntax.vim', {'for': ['scss']}
@@ -73,6 +73,7 @@ Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
+au FileType swift,go,c,cpp let b:delimitMate_expand_cr = 2
 au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),[:],{:}"
 
