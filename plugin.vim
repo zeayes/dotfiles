@@ -44,6 +44,7 @@ let g:tern_show_signature_in_pum = 1
 Plug 'tpope/vim-markdown', {'for': ['markdown']}
 " Plug 'suan/vim-instant-markdown'
 " let g:instant_markdown_slow = 1
+Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
 
 Plug 'Lokaltog/vim-easymotion'
 let g:EasyMotion_smartcase = 1
@@ -381,24 +382,22 @@ let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 
 Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
 if executable('ag')
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts = '--nocolor --nogroup -S -C4'
     let g:unite_source_grep_recursive_opt = ''
 endif
-let g:unite_data_directory='~/.vim/.cache/unite'
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable=1
 let g:unite_prompt='» '
 let g:unite_split_rule = 'botright'
-" nnoremap <leader>t :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<CR>
-nnoremap <leader>f :<C-u>Unite -buffer-name=files -start-insert file<CR>
-nnoremap <leader>r :<C-u>Unite -buffer-name=mru -start-insert file_mru<CR>
-nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<CR>
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable=1
+let g:unite_data_directory='~/.vim/.cache/unite'
+" nnoremap <leader>u :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<CR>
 nnoremap <leader>t :<C-u>Unite -buffer-name=tab tab<CR>
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
+nnoremap <leader>f :<C-u>Unite -buffer-name=files -start-insert file<CR>
+" nnoremap <leader>r :<C-u>Unite -buffer-name=mru -start-insert file_mru<CR>
 nnoremap <leader>a :<C-u>execute "Unite -buffer-name=ack grep::" . escape(expand('<cword>'),' :\')<CR>
 
 " Custom mappings for the unite buffer
@@ -409,6 +408,7 @@ function! s:unite_settings()
     " Enable navigation with control-j and control-k in insert mode
     imap <buffer> <C-j> <Plug>(unite_select_next_line)
     imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+    nnoremap <ESC> :UniteClose<cr>
 endfunction
 
 call plug#end()

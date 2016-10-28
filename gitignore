@@ -24,6 +24,7 @@ include
 .Python
 node_modules
 pyenv
+.cache
 
 ## front
 .sass-cache
