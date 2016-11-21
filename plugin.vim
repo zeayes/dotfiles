@@ -80,6 +80,7 @@ au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),
 
 Plug 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
+au FileType python let NERDSpaceDelims = 0
 
 " Plug 'klen/python-mode'
 " let g:pymode_lint_checkers = ['flake8']
