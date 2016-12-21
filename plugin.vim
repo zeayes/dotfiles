@@ -11,8 +11,8 @@ Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'othree/html5.vim', {'for': ['html', 'jinja']}
 Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'sass']}
 Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss', 'sass']}
-Plug 'cakebaker/scss-syntax.vim', {'for': ['scss']}
-Plug 'evanmiller/nginx-vim-syntax'
+Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
+Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
 Plug 'keith/swift.vim', {'for': 'swift'}
 Plug 'maralla/completor.vim'
 " Plug 'kentaroi/cocoa.vim'
@@ -23,7 +23,7 @@ Plug 'maralla/completor.vim'
 " Plug 'gilligan/vim-lldb'
 " Plug 'vim-ruby/vim-ruby'
 " Plug 'tpope/vim-endwise'
-Plug 'uarun/vim-protobuf'
+Plug 'uarun/vim-protobuf', {'for': 'protobuf'}
 Plug 'solarnz/thrift.vim', {'for': 'thrift'}
 " Plug 'jeaye/color_coded'
 " Plug 'rdnetto/YCM-Generator'
@@ -95,14 +95,7 @@ autocmd FileType html,css,scss EmmetInstall
 
 " supported by ycm
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
-" au FileType go nmap dt <Plug>(go-def-tab)
-" au FileType go nmap ds <Plug>(go-def-split)
-" let g:go_def_mode = 'guru'
-let g:go_def_mode = 'godef'
-au FileType go nmap <c-d> <Plug>(go-def)
-au FileType go nmap <c-e> <Plug>(go-def-pop)
-" au FileType go nmap <c-d> <Plug>(go-def-vertical)
-" au FileType go nmap <Leader>s <Plug>(go-implements))
+let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -112,8 +105,7 @@ let g:go_highlight_functions = 1
 " let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 " let g:go_metalinter_autosave = 1
-" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-" autocmd FileType go autocmd BufWritePre <buffer> GoImports
+" let g:go_metalinter_enabled = ['vet', 'errcheck']
 
 Plug 'vim-airline/vim-airline-themes'
 
@@ -182,7 +174,7 @@ autocmd Syntax * RainbowParenthesesLoadRound
 autocmd Syntax * RainbowParenthesesLoadSquare
 autocmd Syntax * RainbowParenthesesLoadBraces
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 nmap nt :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\~$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$']
@@ -220,17 +212,6 @@ let tagbar_left = 1
 let tagbar_width = 32
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
-let g:tagbar_type_go = {
-            \ 'ctagstype' : 'go',
-            \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
-            \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
-            \ 'r:constructor', 'f:functions' ],
-            \ 'sro' : '.',
-            \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
-            \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
-            \ 'ctagsbin'  : 'gotags',
-            \ 'ctagsargs' : '-sort -silent'
-            \ }
 
 Plug 'Valloric/YouCompleteMe', {'do': '~/.vim/plugged/YouCompleteMe/install.py --clang-completer'}
 " set completeopt=longest,menu,preview
