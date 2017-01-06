@@ -1,11 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
-" Plug 'nsf/gocode'
 " Plug 'tomasr/molokai'
 Plug 'vim-scripts/DrawIt'
 Plug 'tpope/vim-surround'
 Plug 'honza/vim-snippets'
-" Plug 'zeayes/vim-snippets'
 Plug 'zeayes/jinja-syntax', {'for': 'jinja'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'othree/html5.vim', {'for': ['html', 'jinja']}
@@ -53,8 +51,6 @@ let g:EasyMotion_smartcase = 1
 Plug 'zeayes/vim-coloresque'
 " let g:coloresque_keywords = ["-", "#"]
 
-" Plug 'Chiel92/vim-autoformat'
-
 Plug 'ntpeters/vim-better-whitespace'
 autocmd BufWritePre <buffer> StripWhitespace
 
@@ -66,9 +62,6 @@ Plug 'Valloric/MatchTagAlways'
 
 Plug 'docunext/closetag.vim'
 let g:closetag_html_style=1
-
-Plug 'airblade/vim-gitgutter'
-let g:gitgutter_highlight_lines = 1
 
 Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
@@ -89,11 +82,8 @@ au FileType python let NERDSpaceDelims = 0
 " let g:pymode_rope = 0
 
 Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'xml', 'css', 'scss', 'sass']}
-let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key = '<C-Z>'
-autocmd FileType html,css,scss EmmetInstall
 
-" supported by ycm
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
 let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
@@ -107,21 +97,12 @@ let g:go_highlight_build_constraints = 1
 " let g:go_metalinter_autosave = 1
 " let g:go_metalinter_enabled = ['vet', 'errcheck']
 
-Plug 'vim-airline/vim-airline-themes'
 
-Plug 'bling/vim-airline'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_theme = 'solarized'
-let g:airline_left_sep = '▶'
-let g:airline_left_alt_sep = '❯'
-let g:airline_right_sep = '◀'
-let g:airline_right_alt_sep = '❮'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_powerline_fonts = 1
-" let g:airline#extensions#hunks#enabled=0
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" let g:airline_theme='solarized256'
+let g:airline_powerline_fonts=1
+let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -132,9 +113,12 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+" let g:solarized_contrast="normal"
+" let g:solarized_visibility="normal"
 
+Plug 'gregsexton/gitv'
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_highlight_lines = 1
 Plug 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -213,7 +197,9 @@ let tagbar_width = 32
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
-Plug 'Valloric/YouCompleteMe', {'do': '~/.vim/plugged/YouCompleteMe/install.py --clang-completer'}
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 " set completeopt=longest,menu,preview
 set completeopt=longest,menu
 let g:ycm_error_symbol='>>'
@@ -310,10 +296,7 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 Plug 'ctrlpvim/ctrlp.vim'
-" let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_working_path_mode = 'r'
-" let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|bin|include|lib|node_modules|.sass_cache)$',
   \ 'file': '\v\.(exe|so|dll|pyc|swp)$',
@@ -337,60 +320,9 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-" Plug 'szw/vim-ctrlspace'
-Plug 'vim-ctrlspace/vim-ctrlspace'
-" set showtabline=0
-nmap <C-F>s <ESC>:CtrlSpace<CR>
-let g:CtrlSpaceSearchTiming = 500
-let g:airline_exclude_preview = 1
-hi link CtrlSpaceNormal   PMenu
-hi link CtrlSpaceSelected PMenuSel
-hi link CtrlSpaceSearch   Search
-hi link CtrlSpaceStatus   StatusLine
-if has("gui_running")
-    " Settings for MacVim and Inconsolata font
-    let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-endif
-if executable("ag")
-    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
-
-
-
 Plug 'tacahiroy/ctrlp-funky'
-" nmap <C-A> <ESC>:execute 'CtrlPFunky ' . expand('<cword>')<CR>
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
-
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
-if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '--nocolor --nogroup -S -C4'
-    let g:unite_source_grep_recursive_opt = ''
-endif
-let g:unite_prompt='» '
-let g:unite_split_rule = 'botright'
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable=1
-let g:unite_data_directory='~/.vim/.cache/unite'
-" nnoremap <leader>u :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<CR>
-nnoremap <leader>t :<C-u>Unite -buffer-name=tab tab<CR>
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
-nnoremap <leader>f :<C-u>Unite -buffer-name=files -start-insert file<CR>
-" nnoremap <leader>r :<C-u>Unite -buffer-name=mru -start-insert file_mru<CR>
-nnoremap <leader>a :<C-u>execute "Unite -buffer-name=ack grep::" . escape(expand('<cword>'),' :\')<CR>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-    " Play nice with supertab
-    let b:SuperTabDisabled=1
-    " Enable navigation with control-j and control-k in insert mode
-    imap <buffer> <C-j> <Plug>(unite_select_next_line)
-    imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-    nnoremap <ESC> :UniteClose<cr>
-endfunction
 
 call plug#end()

@@ -104,14 +104,8 @@ set ambiwidth=double
 set helplang=cn
 " 输出到客户终端（Term）采用的编码类型
 set termencoding=utf-8
-" 总是现实状态行
+" 总是显示装态行
 set laststatus=2
-set statusline=\ [%{getcwd()}/%<%f%m%r%h%w]
-set statusline+=\ [%{fugitive#statusline()}]
-set statusline+=\ [FORMAT=%{&ff}]
-set statusline+=\ [TYPE=%Y]
-set statusline+=\ [POS=%l,%v\ %p%%]
-set statusline+=\ [%{strftime(\"%Y/%m/%d\ %H:%M\")}]
 " 格式化粘贴，设置默认的缓冲寄存器为
 set clipboard=unnamed
 set pastetoggle=<F3>
