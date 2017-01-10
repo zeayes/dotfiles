@@ -93,13 +93,14 @@ filetype plugin on
 filetype indent on
 " 显示所用的编码（取决于“LANG环境变量”）
 set encoding=utf-8
+scriptencoding utf-8
 set fileformats=unix,dos
 " vim自动判断文件的编码时尝试的顺序
 set fileencodings=utf-8,gb2312,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom
 set wildignore=*.o,*~,*.pyc,*.bin,#*#
 set wildignore+=*/.git/*,*/.DS_Store
 " 让汉字以2个宽度显示
-set ambiwidth=double
+" set ambiwidth=double
 " 设置帮助的语言为中文
 set helplang=cn
 " 输出到客户终端（Term）采用的编码类型
