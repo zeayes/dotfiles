@@ -290,8 +290,6 @@ let tagbar_width = 32
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 " set completeopt=longest,menu,preview
 set completeopt=longest,menu
