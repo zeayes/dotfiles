@@ -13,7 +13,7 @@ Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss', 'sass']}
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
 Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
 Plug 'keith/swift.vim', {'for': 'swift'}
-Plug 'maralla/completor.vim'
+" Plug 'maralla/completor.vim'
 " Plug 'kentaroi/cocoa.vim'
 " Plug 'b4winckler/vim-objc'
 " Plug 'kballard/vim-swift'
@@ -27,8 +27,8 @@ Plug 'solarnz/thrift.vim', {'for': 'thrift'}
 " Plug 'jeaye/color_coded'
 " Plug 'rdnetto/YCM-Generator'
 
-" Plug 'artur-shaik/vim-javacomplete2'
-" autocmd FileType java setlocal omnifunc=javacomplete#Complete
+Plug 'artur-shaik/vim-javacomplete2'
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " let g:rustfmt_autosave = 1
@@ -68,9 +68,9 @@ Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
-au FileType swift,go,c,cpp let b:delimitMate_expand_cr = 2
-au FileType rust let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType swift,go,c,cpp,java let b:delimitMate_expand_cr = 2
+au FileType rust,java let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+au FileType ruby,python,go,groovy,cpp,swift,java let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plug 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
