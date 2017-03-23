@@ -9,6 +9,7 @@
         "jsx": true
     },
     "plugins": [
+        "vue",
         "react"
     ],
     "rules": {
@@ -16,6 +17,7 @@
         "quotes": 0,
         "no-unused-vars": 0,
         "camelcase": 0,
+        "vue/jsx-uses-vars": 2,
         "no-underscore-dangle": 0
     }
 }

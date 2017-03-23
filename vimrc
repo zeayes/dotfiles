@@ -169,8 +169,8 @@ autocmd BufNewFile,BufReadPost *.vue set filetype=html
 " reset iskeyword and add - to iskeyword
 augroup Frontend
     au!
-    autocmd FileType xml,css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
-    autocmd FileType xml,css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+    autocmd FileType vue,xml,css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
+    autocmd FileType vue,xml,css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
     autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
 " autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool

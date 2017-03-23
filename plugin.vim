@@ -68,9 +68,9 @@ Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
-au FileType swift,go,c,cpp,java let b:delimitMate_expand_cr = 2
+au FileType swift,go,c,cpp,java,html,javascript let b:delimitMate_expand_cr = 2
 au FileType rust,java let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-au FileType ruby,python,go,groovy,cpp,swift,java let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plug 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
