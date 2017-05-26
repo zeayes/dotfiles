@@ -44,7 +44,7 @@ ZSH_THEME="zeayes"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(autojump git go osx colored-man supervisor brew vundle tmux redis-cli docker)
+plugins=(autojump git go osx colored-man supervisor brew vundle tmux redis-cli docker zsh-autosuggestions safe-paste extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,3 +96,7 @@ export HOMEBREW_BOTTLE_DOMAIN="http://7xkcej.dl1.z0.glb.clouddn.com"
 alias mvn="mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true"
 alias supervisorctl="supervisorctl -c /usr/local/etc/supervisord.ini"
 # alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
+
+eval "$(fasd --init auto)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

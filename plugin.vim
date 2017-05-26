@@ -5,6 +5,7 @@ Plug 'sjl/gundo.vim'
 Plug 'vim-scripts/DrawIt'
 Plug 'tpope/vim-surround'
 Plug 'honza/vim-snippets'
+Plug 'posva/vim-vue'
 Plug 'zeayes/jinja-syntax', {'for': 'jinja'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'othree/html5.vim', {'for': ['html', 'jinja']}
@@ -33,11 +34,11 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " let g:rustfmt_autosave = 1
 
-Plug 'mxw/vim-jsx', {'for': 'javascript'}
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 let javascript_enable_domhtmlcss = 1
 
-Plug 'ternjs/tern_for_vim', {'for': 'javascript'}
+Plug 'ternjs/tern_for_vim'
 let g:tern_show_signature_in_pum = 1
 
 Plug 'tpope/vim-markdown', {'for': ['markdown']}
@@ -68,7 +69,7 @@ Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
-au FileType swift,go,c,cpp,java,html,javascript let b:delimitMate_expand_cr = 2
+au FileType swift,go,c,cpp,java,html,javascript,css,htmldjango let b:delimitMate_expand_cr = 2
 au FileType rust,java let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),[:],{:}"
 
@@ -82,7 +83,7 @@ au FileType python let NERDSpaceDelims = 0
 " let g:pymode_options = 0
 " let g:pymode_rope = 0
 
-Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'xml', 'css', 'scss', 'sass']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'htmldjango', 'jinja', 'xml', 'css', 'scss', 'sass']}
 let g:user_emmet_leader_key = '<C-Z>'
 
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}

@@ -118,6 +118,7 @@ set foldmethod=indent
 set foldnestmax=3
 " 默认不折叠
 set nofoldenable
+"set foldenable
 """""""""""""""""""""自定义函数"""""""""""""""""""""""
 map <F5> :call CompileRun()<CR>
 function! CompileRun()
@@ -165,12 +166,12 @@ autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.vue set filetype=html
+" autocmd BufNewFile,BufReadPost *.vue set filetype=html
 " reset iskeyword and add - to iskeyword
 augroup Frontend
     au!
-    autocmd FileType vue,xml,css,scss,sass,html,javascript set iskeyword& | set iskeyword+=-
-    autocmd FileType vue,xml,css,scss,sass,html,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+    autocmd FileType vue,xml,css,scss,sass,html,htmldjango,javascript set iskeyword& | set iskeyword+=-
+    autocmd FileType vue,xml,css,scss,sass,html,htmldjango,javascript setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
     autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
 " autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
