@@ -254,6 +254,7 @@ autocmd Syntax * RainbowParenthesesLoadBraces
 
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 nmap nt :NERDTreeToggle<CR>
+let NERDTreeWinSize=15
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\~$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$']
 let NERDTreeShowBookmarks=1
@@ -287,9 +288,10 @@ nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 Plug 'majutsushi/tagbar'
 nmap tb :TagbarToggle <CR>
 let tagbar_left = 1
-let tagbar_width = 32
+let tagbar_width = 15
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
+let g:tagbar_autofocus = 1
 
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 " set completeopt=longest,menu,preview

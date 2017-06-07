@@ -43,3 +43,6 @@ pyenv
 
 srvconf.py
 build
+lib
+pip-selfcheck.json
+pyvenv.cfg
