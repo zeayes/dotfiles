@@ -71,14 +71,14 @@ def MakeRelativePathsInFlagsAbsolute(flags, working_directory):
                 make_next_absolute = True
                 break
 
-        if flag.startswith(path_flag):
-            path = flag[len(path_flag):]
-            new_flag = path_flag + os.path.join(working_directory, path)
-            break
+            if flag.startswith(path_flag):
+                path = flag[len(path_flag):]
+                new_flag = path_flag + os.path.join(working_directory, path)
+                break
 
-        if new_flag:
-            new_flags.append(new_flag)
-            return new_flags
+    if new_flag:
+        new_flags.append(new_flag)
+        return new_flags
 
 
 def IsHeaderFile(filename):
