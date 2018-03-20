@@ -107,6 +107,7 @@ set helplang=cn
 set termencoding=utf-8
 " 总是显示装态行
 set laststatus=2
+" set showtabline=2
 " 格式化粘贴，设置默认的缓冲寄存器为
 set clipboard=unnamed
 set pastetoggle=<F3>
@@ -165,6 +166,7 @@ autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp
+autocmd BufNewFile,BufRead *.asm set filetype=nasm
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " autocmd BufNewFile,BufReadPost *.vue set filetype=html
 " reset iskeyword and add - to iskeyword

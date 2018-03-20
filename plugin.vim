@@ -12,7 +12,7 @@ Plug 'othree/html5.vim', {'for': ['html', 'jinja']}
 Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'sass']}
 Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss', 'sass']}
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
-Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
+" Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
 Plug 'keith/swift.vim', {'for': 'swift'}
 " Plug 'maralla/completor.vim'
 " Plug 'kentaroi/cocoa.vim'
@@ -23,6 +23,8 @@ Plug 'keith/swift.vim', {'for': 'swift'}
 " Plug 'gilligan/vim-lldb'
 " Plug 'vim-ruby/vim-ruby'
 " Plug 'tpope/vim-endwise'
+" Plug 'justinmk/vim-sneak'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  } | Plug 'junegunn/fzf.vim'
 Plug 'uarun/vim-protobuf', {'for': 'protobuf'}
 Plug 'solarnz/thrift.vim', {'for': 'thrift'}
 " Plug 'jeaye/color_coded'
@@ -37,6 +39,8 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 let javascript_enable_domhtmlcss = 1
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
 
 Plug 'ternjs/tern_for_vim'
 let g:tern_show_signature_in_pum = 1
@@ -65,13 +69,15 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'docunext/closetag.vim'
 let g:closetag_html_style=1
 
+Plug 'editorconfig/editorconfig-vim'
+
 Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
 au FileType rust let b:delimitMate_quotes = "\" ' ` | %"
-au FileType swift,go,c,cpp,java,html,javascript,css,htmldjango let b:delimitMate_expand_cr = 2
+au FileType rust,scala,swift,go,c,cpp,java,html,javascript,css,htmldjango,proto,vue let b:delimitMate_expand_cr = 2
 au FileType rust,java let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-au FileType ruby,python,go,groovy,cpp,swift let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType ruby,python,go,groovy,cpp,swift,rust let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Plug 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
@@ -83,7 +89,7 @@ au FileType python let NERDSpaceDelims = 0
 " let g:pymode_options = 0
 " let g:pymode_rope = 0
 
-Plug 'mattn/emmet-vim', {'for': ['html', 'htmldjango', 'jinja', 'xml', 'css', 'scss', 'sass']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'htmldjango', 'jinja', 'xml', 'css', 'scss', 'sass', 'vue']}
 let g:user_emmet_leader_key = '<C-Z>'
 
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
@@ -314,14 +320,20 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 " let g:ycm_goto_buffer_command='vertical-split'
 let g:ycm_goto_buffer_command='same-buffer'
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_rust_src_path = '/usr/local/rustc-1.8.0/src'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/Users/zeayes/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_rust_src_path = '/Users/zeayes/develop/github/rust/src'
 let g:ycm_filetype_blacklist = {'tagbar' : 1, 'nerdtree' : 1}
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
 " 导致vim出现卡顿现象
 " nnoremap jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <F2> :YcmForceCompileAndDiagnostics<CR>
 if &filetype != 'go'
     nnoremap <c-d> :YcmCompleter GoToDefinition<CR>
+    nnoremap <c-i> :YcmCompleter GoToInclude<CR>
     nnoremap <c-h> :YcmCompleter GoToDeclaration<CR>
     nnoremap <c-e> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 endif
@@ -340,46 +352,66 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-Plug 'scrooloose/syntastic'
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_open=1
-" let g:syntastic_auto_loc_list = 1
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_css_csslint_args = '--ignore=ids,box-model,gradients,duplicate-background-images'
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_scss_scss_lint_args = '--config ~/.scsslint.yml'
-" let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_html_checkers=['tidy', 'jshint']
-let g:syntastic_html_tidy_quiet_messages = {"level": "warnings"}
-let g:syntastic_html_tidy_ignore_errors = [
-            \ 'Expected a string and instead saw',
-            \ 'escaping malformed URI reference',
-            \ 'trimming empty'
-            \ ]
-" let g:syntastic_html_tidy_args = '--show-warnings false'
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args = '
+" autocmd FileType python set formatprg=yapf
+" autocmd BufWritePre *.py silent normal mzgggqG`z
+
+" Plug 'scrooloose/syntastic'
+" " set statusline+=%#warningmsg#
+" " set statusline+=%{SyntasticStatuslineFlag()}
+" " set statusline+=%*
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_error_symbol = '✗'
+" let g:syntastic_warning_symbol = '⚠'
+" let g:syntastic_enable_signs=1
+" let g:syntastic_check_on_open=1
+" " let g:syntastic_auto_loc_list = 1
+" let g:syntastic_enable_highlighting = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_css_checkers = ['csslint']
+" let g:syntastic_css_csslint_args = '--ignore=ids,box-model,gradients,duplicate-background-images'
+" let g:syntastic_scss_checkers = ['scss_lint']
+" let g:syntastic_scss_scss_lint_args = '--config ~/.scsslint.yml'
+" " let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_html_checkers=['tidy', 'jshint']
+" let g:syntastic_html_tidy_quiet_messages = {"level": "warnings"}
+" let g:syntastic_html_tidy_ignore_errors = [
+"             \ 'Expected a string and instead saw',
+"             \ 'escaping malformed URI reference',
+"             \ 'trimming empty'
+"             \ ]
+" " let g:syntastic_html_tidy_args = '--show-warnings false'
+" let g:syntastic_python_checkers=['flake8']
+" let g:syntastic_python_flake8_args = '
+"     \ --max-line-length=120 --max-complexity=12
+"     \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
+" " let g:syntastic_python_checkers=['pyflakes']
+" " let g:syntastic_python_checkers=['pylint']
+" " let g:syntastic_quiet_messages = {'level': 'warning'}
+" let g:syntastic_go_gometalinter_args = ['--fast']
+" " let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+" let g:syntastic_swift_checkers = ['swiftlint']
+" " let g:syntastic_go_gometalinter_args = ['-disable deadcode']
+" let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java', 'nasm']}
+" highlight SyntasticErrorSign guifg=white guibg=black
+
+Plug 'w0rp/ale'
+" let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_go_gometalinter_options = '
+            \ --fast
+            \ --disable=golint'
+let g:ale_python_flake8_args = '
     \ --max-line-length=120 --max-complexity=12
     \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
-" let g:syntastic_python_checkers=['pyflakes']
-" let g:syntastic_python_checkers=['pylint']
-" let g:syntastic_quiet_messages = {'level': 'warning'}
-let g:syntastic_go_checkers = ['gometalinter']
-let g:syntastic_go_gometalinter_args = ['--fast']
-" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-let g:syntastic_swift_checkers = ['swiftlint']
-" let g:syntastic_go_gometalinter_args = ['-disable deadcode']
-let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java']}
-highlight SyntasticErrorSign guifg=white guibg=black
+let g:ale_fixers = {
+    \ 'javascript': ['eslint'],
+    \ 'python': ['flake8'],
+    \ 'go': ['gometalinter'],
+    \ }
+
+
 
 
 Plug 'terryma/vim-multiple-cursors'
@@ -392,7 +424,7 @@ let g:multi_cursor_quit_key='<Esc>'
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|bin|include|lib|node_modules|.sass_cache)$',
+  \ 'dir': '\v[\/](node_modules|lib|include|bin|dist)|(\.(swp|ico|git|svn|sass_cache))$',
   \ 'file': '\v\.(exe|so|dll|pyc|swp)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -401,10 +433,20 @@ Plug 'mileszs/ack.vim'
 if executable("ag")
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+    let g:ackprg = 'rg --vimgrep'
+    let g:ctrlsf_ackprg = 'rg'
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
+endif
 nmap <C-a> <ESC>:Ack
 Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_context = '-B 3 -A 3'
 let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_ignore_dir = ['qbservice']
 nmap <C-F>f <Plug>CtrlSFPrompt
 vmap <C-F>f <Plug>CtrlSFVwordPath
 vmap <C-F>F <Plug>CtrlSFVwordExec
