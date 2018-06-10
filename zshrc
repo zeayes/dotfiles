@@ -44,7 +44,7 @@ ZSH_THEME="zeayes"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(autojump git go osx colored-man supervisor brew vundle tmux redis-cli docker zsh-autosuggestions safe-paste extract)
+plugins=(autojump git go osx colored-man supervisor vundle tmux redis-cli docker zsh-autosuggestions safe-paste extract spring mvn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -77,6 +77,10 @@ export PATH=/Users/zeayes/Library/Python/2.7/bin:$PATH
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home #jdk安装路径
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+# export SPARK_HOME=/usr/local/spark
+# export PATH=$PATH:$SPARK_HOME/bin
+# export HADOOP_OPTS="-Djava.library.path=${HADOOP_HOME}/lib/native"
 
 export PATH=/usr/local/bin:$PATH
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH

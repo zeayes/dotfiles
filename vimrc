@@ -7,6 +7,7 @@ endif
 syntax enable
 " 配色方案
 set t_Co=256
+" set termguicolors
 set background=dark
 colorscheme solarized
 " colorscheme desert
@@ -118,8 +119,13 @@ set foldmethod=indent
 " 设置折叠深度
 set foldnestmax=3
 " 默认不折叠
-set nofoldenable
-"set foldenable
+" set nofoldenable
+set foldenable
+" 设置split跳转快捷键
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 """""""""""""""""""""自定义函数"""""""""""""""""""""""
 map <F5> :call CompileRun()<CR>
 function! CompileRun()
@@ -134,6 +140,8 @@ function! CompileRun()
         exec "!python %"
     elseif &filetype == 'java'
         exec "!javac % && java %:r"
+    elseif &filetype == 'scala'
+        exec "!scalac % && scala %:r"
     elseif &filetype == 'ruby'
         exec "!ruby %"
     elseif &filetype == 'swift'
@@ -177,6 +185,7 @@ augroup Frontend
     autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
 " autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
+" autocmd FileType python autocmd BufWritePre <buffer> %!yapf
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " change the mapleader from \ to ,

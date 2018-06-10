@@ -37,11 +37,11 @@ pyenv
 
 ## java
 *.class
+*.iml
 
 # *.js
 # !*.min.js
 
-srvconf.py
 build
 lib
 pip-selfcheck.json

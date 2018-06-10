@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-" Plug 'tomasr/molokai'
+
 Plug 'sjl/gundo.vim'
 Plug 'vim-scripts/DrawIt'
 Plug 'tpope/vim-surround'
@@ -12,29 +12,15 @@ Plug 'othree/html5.vim', {'for': ['html', 'jinja']}
 Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'sass']}
 Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss', 'sass']}
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
-" Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
-Plug 'keith/swift.vim', {'for': 'swift'}
-" Plug 'maralla/completor.vim'
-" Plug 'kentaroi/cocoa.vim'
-" Plug 'b4winckler/vim-objc'
-" Plug 'kballard/vim-swift'
-" Plug 'eraserhd/vim-ios.git'
-" Plug 'rhysd/vim-clang-format'
-" Plug 'gilligan/vim-lldb'
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-endwise'
-" Plug 'justinmk/vim-sneak'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  } | Plug 'junegunn/fzf.vim'
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'uarun/vim-protobuf', {'for': 'protobuf'}
 Plug 'solarnz/thrift.vim', {'for': 'thrift'}
-" Plug 'jeaye/color_coded'
-" Plug 'rdnetto/YCM-Generator'
 
 Plug 'artur-shaik/vim-javacomplete2'
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
-" let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 1
 
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -54,8 +40,7 @@ Plug 'Lokaltog/vim-easymotion'
 let g:EasyMotion_smartcase = 1
 "let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
-Plug 'zeayes/vim-coloresque'
-" let g:coloresque_keywords = ["-", "#"]
+Plug 'gko/vim-coloresque'
 
 Plug 'ntpeters/vim-better-whitespace'
 autocmd BufWritePre <buffer> StripWhitespace
@@ -69,8 +54,6 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'docunext/closetag.vim'
 let g:closetag_html_style=1
 
-Plug 'editorconfig/editorconfig-vim'
-
 Plug 'Raimondi/delimitMate'
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 " exclude <:> matchpair
@@ -82,12 +65,6 @@ au FileType ruby,python,go,groovy,cpp,swift,rust let b:delimitMate_matchpairs = 
 Plug 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1  " 自动添加前置空格
 au FileType python let NERDSpaceDelims = 0
-
-" Plug 'klen/python-mode'
-" let g:pymode_lint_checkers = ['flake8']
-" let g:pymode_trim_whitespaces = 0
-" let g:pymode_options = 0
-" let g:pymode_rope = 0
 
 Plug 'mattn/emmet-vim', {'for': ['html', 'htmldjango', 'jinja', 'xml', 'css', 'scss', 'sass', 'vue']}
 let g:user_emmet_leader_key = '<C-Z>'
@@ -263,37 +240,20 @@ nmap nt :NERDTreeToggle<CR>
 let NERDTreeWinSize=15
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\~$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$']
-let NERDTreeShowBookmarks=1
+let NERDTreeShowBookmarks=0
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
-let NERDTreeWinPos='right'
+let NERDTreeWinPos='left'
 let g:nerdtree_tabs_open_on_gui_startup=0
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-Plug 'godlygeek/tabular'
-nmap <Leader>a& :Tabularize /&<CR>
-vmap <Leader>a& :Tabularize /&<CR>
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a=> :Tabularize /=><CR>
-vmap <Leader>a=> :Tabularize /=><CR>
-nmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-nmap <Leader>a:: :Tabularize /:\zs<CR>
-vmap <Leader>a:: :Tabularize /:\zs<CR>
-nmap <Leader>a, :Tabularize /,<CR>
-vmap <Leader>a, :Tabularize /,<CR>
-nmap <Leader>a,, :Tabularize /,\zs<CR>
-vmap <Leader>a,, :Tabularize /,\zs<CR>
-nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-
 Plug 'majutsushi/tagbar'
 nmap tb :TagbarToggle <CR>
-let tagbar_left = 1
+let tagbar_right = 1
 let tagbar_width = 15
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
@@ -355,63 +315,21 @@ let g:indent_guides_enable_on_vim_startup = 1
 " autocmd FileType python set formatprg=yapf
 " autocmd BufWritePre *.py silent normal mzgggqG`z
 
-" Plug 'scrooloose/syntastic'
-" " set statusline+=%#warningmsg#
-" " set statusline+=%{SyntasticStatuslineFlag()}
-" " set statusline+=%*
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_error_symbol = '✗'
-" let g:syntastic_warning_symbol = '⚠'
-" let g:syntastic_enable_signs=1
-" let g:syntastic_check_on_open=1
-" " let g:syntastic_auto_loc_list = 1
-" let g:syntastic_enable_highlighting = 0
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_css_checkers = ['csslint']
-" let g:syntastic_css_csslint_args = '--ignore=ids,box-model,gradients,duplicate-background-images'
-" let g:syntastic_scss_checkers = ['scss_lint']
-" let g:syntastic_scss_scss_lint_args = '--config ~/.scsslint.yml'
-" " let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_html_checkers=['tidy', 'jshint']
-" let g:syntastic_html_tidy_quiet_messages = {"level": "warnings"}
-" let g:syntastic_html_tidy_ignore_errors = [
-"             \ 'Expected a string and instead saw',
-"             \ 'escaping malformed URI reference',
-"             \ 'trimming empty'
-"             \ ]
-" " let g:syntastic_html_tidy_args = '--show-warnings false'
-" let g:syntastic_python_checkers=['flake8']
-" let g:syntastic_python_flake8_args = '
-"     \ --max-line-length=120 --max-complexity=12
-"     \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
-" " let g:syntastic_python_checkers=['pyflakes']
-" " let g:syntastic_python_checkers=['pylint']
-" " let g:syntastic_quiet_messages = {'level': 'warning'}
-" let g:syntastic_go_gometalinter_args = ['--fast']
-" " let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-" let g:syntastic_swift_checkers = ['swiftlint']
-" " let g:syntastic_go_gometalinter_args = ['-disable deadcode']
-" let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java', 'nasm']}
-" highlight SyntasticErrorSign guifg=white guibg=black
-
 Plug 'w0rp/ale'
+let g:ale_open_list = 1
 " let g:ale_fix_on_save = 1
+let g:ale_set_quickfix = 1
 let g:ale_completion_enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_go_gometalinter_options = '
-            \ --fast
-            \ --disable=golint'
-let g:ale_python_flake8_args = '
-    \ --max-line-length=120 --max-complexity=12
-    \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
-let g:ale_fixers = {
-    \ 'javascript': ['eslint'],
-    \ 'python': ['flake8'],
-    \ 'go': ['gometalinter'],
-    \ }
-
-
+let g:ale_go_gometalinter_options = ' --fast --disable=golint'
+" let g:ale_python_flake8_options = '
+    " \ --max-line-length=120 --max-complexity=12
+    " \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = {'python': ['autopep8']}
+" let g:ale_python_pylint_options = '--disable=C0111'
+" let g:ale_linters = {'python': ['pylint']}
+" let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf'], 'go': ['gometalinter']}
 
 
 Plug 'terryma/vim-multiple-cursors'
