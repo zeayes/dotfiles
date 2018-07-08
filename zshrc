@@ -50,19 +50,15 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-if brew list | grep coreutils > /dev/null ; then
-    export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-    export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
-    alias ls='ls -F --show-control-chars --color=auto'
-    eval `gdircolors -b $HOME/.dir_colors`
-    export GOROOT=$(brew --prefix go)/libexec
-    export GOPATH=$HOME/Golib
-    export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-    export PATH=$(brew --prefix llvm)/bin:$PATH
-fi
-
-# eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
+export BREW_HOME='/usr/local/opt'
+export PATH=$BREW_HOME/coreutils/libexec/gnubin:$PATH
+export MANPATH=$BREW_HOME/coreutils/libexec/gnubin:$MANPATH
+alias ls='ls -F --show-control-chars --color=auto'
+eval `gdircolors -b $HOME/.dir_colors`
+export GOROOT=$BREW_HOME/go/libexec
+export GOPATH=$HOME/Golib
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export PATH=$BREW_HOME/llvm/bin:$PATH
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
