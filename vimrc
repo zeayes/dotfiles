@@ -119,8 +119,8 @@ set foldmethod=indent
 " 设置折叠深度
 set foldnestmax=3
 " 默认不折叠
-" set nofoldenable
-set foldenable
+set nofoldenable
+" set foldenable
 " 设置split跳转快捷键
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

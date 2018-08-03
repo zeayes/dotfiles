@@ -277,6 +277,7 @@ let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
 " [ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 " let g:ycm_goto_buffer_command='vertical-split'
 let g:ycm_goto_buffer_command='same-buffer'
@@ -316,15 +317,15 @@ let g:indent_guides_enable_on_vim_startup = 1
 " autocmd BufWritePre *.py silent normal mzgggqG`z
 
 Plug 'w0rp/ale'
-let g:ale_open_list = 1
+" let g:ale_open_list = 1
 " let g:ale_fix_on_save = 1
 let g:ale_set_quickfix = 1
 let g:ale_completion_enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_go_gometalinter_options = ' --fast --disable=golint'
-" let g:ale_python_flake8_options = '
-    " \ --max-line-length=120 --max-complexity=12
-    " \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
+let g:ale_python_flake8_options = '
+    \ --max-line-length=120 --max-complexity=12
+    \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {'python': ['autopep8']}
 " let g:ale_python_pylint_options = '--disable=C0111'

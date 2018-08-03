@@ -50,16 +50,14 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-if brew list | grep coreutils > /dev/null ; then
-    export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-    export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
-    alias ls='ls -F --show-control-chars --color=auto'
-    eval `gdircolors -b $HOME/.dir_colors`
-    export GOROOT=$(brew --prefix go)/libexec
-    export GOPATH=$HOME/Golib
-    export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-    export PATH=$(brew --prefix llvm)/bin:$PATH
-fi
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnubin:$MANPATH
+alias ls='ls -F --show-control-chars --color=auto'
+eval `gdircolors -b $HOME/.dir_colors`
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/Golib
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+# export PATH=$(brew --prefix llvm)/bin:$PATH
 
 # eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
@@ -71,7 +69,7 @@ fi
 #   export EDITOR='mvim'
 # fi
 # export EDITOR=/usr/bin/vim
-export EDITOR=/usr/local/opt/vim/bin/vim
+# export EDITOR=/usr/local/opt/vim/bin/vim
 export PATH=/Users/zeayes/Library/Python/2.7/bin:$PATH
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home #jdk安装路径
