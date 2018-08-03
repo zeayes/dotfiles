@@ -50,17 +50,15 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-export MANPATH=/usr/local/opt/coreutils/libexec/gnubin:$MANPATH
+export BREW_HOME='/usr/local/opt'
+export PATH=$BREW_HOME/coreutils/libexec/gnubin:$PATH
+export MANPATH=$BREW_HOME/coreutils/libexec/gnubin:$MANPATH
 alias ls='ls -F --show-control-chars --color=auto'
 eval `gdircolors -b $HOME/.dir_colors`
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT=$BREW_HOME/go/libexec
 export GOPATH=$HOME/Golib
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-# export PATH=$(brew --prefix llvm)/bin:$PATH
-
-# eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
+export PATH=$BREW_HOME/llvm/bin:$PATH
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
