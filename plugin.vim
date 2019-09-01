@@ -316,20 +316,20 @@ let g:indent_guides_enable_on_vim_startup = 1
 " autocmd FileType python set formatprg=yapf
 " autocmd BufWritePre *.py silent normal mzgggqG`z
 
-Plug 'w0rp/ale'
-" let g:ale_open_list = 1
-" let g:ale_fix_on_save = 1
+Plug 'dense-analysis/ale'
+let g:ale_open_list = 1
+let g:ale_fix_on_save = 1
 let g:ale_set_quickfix = 1
 let g:ale_completion_enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_go_gometalinter_options = ' --fast --disable=golint'
-let g:ale_python_flake8_options = '
-    \ --max-line-length=120 --max-complexity=12
-    \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
-let g:ale_linters = {'python': ['flake8']}
-let g:ale_fixers = {'python': ['autopep8']}
+"let g:ale_python_flake8_options = '
+"    \ --max-line-length=120 --max-complexity=12
+"    \ --ignore="E127,E128,E241,E261,E701,E712,W801,C901"'
+" let g:ale_linters = {'python': ['flake8']}
+" let g:ale_fixers = {'python': ['autopep8']}
 " let g:ale_python_pylint_options = '--disable=C0111'
-" let g:ale_linters = {'python': ['pylint']}
+let g:ale_linters = {'python': ['pylint']}
 " let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf'], 'go': ['gometalinter']}
 
 

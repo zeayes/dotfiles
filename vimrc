@@ -52,8 +52,8 @@ set shiftwidth=4
 " backspace delete indent
 set softtabstop=4
 " 显示TAB字符威<+++
-"set list
-"set listchars=tab:<+
+" set list
+" set listchars=tab:<+
 " 输入搜索内容时就显示搜索结果
 set incsearch
 " 搜索时高亮显示被找到的文本
@@ -172,6 +172,7 @@ autocmd BufNewFile *.css :call append(0, '@charset "utf-8;"')
 autocmd BufNewFile *.lua :call append(0, "\#!/usr/local/bin/lua")
 " autocmd BufNewFile *.swift :call append(0, "#!/usr/bin/env swift")
 autocmd FileType make set noexpandtab
+autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
 autocmd BufNewFile,BufRead *.h,*.m set filetype=objc | set makeprg=clang\ -fobjc-arc\ -o\ %:r\ %:p
 autocmd BufNewFile,BufRead *.mm set filetype=objcpp
 autocmd BufNewFile,BufRead *.asm set filetype=nasm
